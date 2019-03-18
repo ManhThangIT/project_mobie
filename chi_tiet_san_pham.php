@@ -193,18 +193,48 @@
 
 
 										<a href="./index.php" class="logo-wrapper ">					
-											<img src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/logo.png?1524126221691" alt="logo ">					
+											<img src="./img/logo.png" alt="logo ">					
 										</a>
 
 									</div>
 								</div>
+								<?php 
+									include 'connect_database.php';
+									$tim_kiem = "";
+									if(isset($_GET['tim_kiem'])){
+										$tim_kiem = strip_tags(addslashes($_GET['tim_kiem']));
+									}
+									$page = 1;
+									if(isset($_GET['page'])){
+										$page = $_GET['page'];
+									}
+
+									$limit = 1;
+
+
+									$offset = ($page-1)*$limit;
+
+									$query_show = "SELECT * from san_pham
+									join nha_san_xuat
+									on san_pham.ma_nha_san_xuat = nha_san_xuat.ma_nha_san_xuat
+									where ten_san_pham  like '%$tim_kiem%'
+									limit $limit offset $offset";
+									$result_show = mysqli_query($connect,$query_show);
+
+									$query_count = "SELECT count(*) from san_pham
+									where ten_san_pham like '%$tim_kiem%'";
+									$result_count = mysqli_query($connect,$query_count);
+									$row_count    = mysqli_fetch_array($result_count);
+									$count        = $row_count['count(*)'];
+
+									?>
 								<div class="col-lg-6 col-md-6">
 									<div class="header-left">
 										<div class="header_search hidden-xs hidden-sm">
-											<form action="/search" method="get" class="input-group search-bar" role="search">
+											<form  class="input-group search-bar" role="search">
 												<input type="hidden" name="type" value="product">
 
-												<input type="search" name="query" value="" placeholder="Bạn đang tìm sản phẩm gì..." class="input-group-field">
+												<input type="search" name="tim_kiem" value="<?php echo $tim_kiem ?>" placeholder="Bạn đang tìm sản phẩm gì..." class="input-group-field">
 												<span class="input-group-btn">
 													<button type="submit" class="btn icon-fallback-text">
 														Tìm kiếm      
@@ -212,18 +242,7 @@
 												</span>
 											</form>
 										</div>
-										<div class="header_search hidden-lg hidden-md">
-											<form action="/search" method="get" class="input-group search-bar" role="search">
-												<input type="hidden" name="type" value="product">
 
-												<input type="search" name="query" value="" placeholder="Tìm kiếm..." class="input-group-field">
-												<span class="input-group-btn">
-													<button type="submit" class="btn icon-fallback-text">
-														Tìm kiếm      
-													</button>
-												</span>
-											</form>
-										</div>
 
 									</div>
 								</div>
@@ -310,23 +329,7 @@
 
 
 
-												<li class="nav-item ">				
-													<a class="a-img" href="/gioi-thieu"><span>Giới thiệu</span></a>
-												</li>
-
-
-
-
-
-
-
-
-
-
-												<li class="nav-item ">				
-													<a class="a-img" href="/tin-tuc"><span>Khuyến mãi</span></a>
-												</li>
-
+												
 
 
 
@@ -876,7 +879,7 @@
 
 
 
-								<div class="social-media" data-permalink="https://template-digiworld.bizwebvietnam.net/op-lung-iphone-6-6s-memo-totem">
+								<!-- <div class="social-media" data-permalink="https://template-digiworld.bizwebvietnam.net/op-lung-iphone-6-6s-memo-totem">
 									<label>Chia sẻ: </label>
 
 									<a target="_blank" href="//www.facebook.com/sharer.php?u=https://template-digiworld.bizwebvietnam.net/op-lung-iphone-6-6s-memo-totem" class="share-facebook" title="Chia sẻ lên Facebook">
@@ -903,7 +906,7 @@
 										<i class="fa fa-google-plus"></i>
 									</a>
 
-								</div>
+								</div> -->
 							</div>
 							
 							
@@ -1044,8 +1047,85 @@
 
 										</div>
 									</div>
+									<!-- NHÚNG BÌNH LUẬN -->
 									<span class="product-reviews-summary-actions">
-										<input type="button" onclick="BPR.toggleForm(this);return false;" id="btnnewreview" value="Viết đánh giá">
+										<div class="fb-comments" data-href="https://www.facebook.com/Learn-I-T-933406046870372/?__tn__=kC-R&amp;eid=ARAWXPc_I1opzvTBF9i_BGkPDKl1Ii8u9YbbrYwFHvJpaz62aTwhEVELwm5h27xcVFfPpeTw34CXy1IV&amp;hc_ref=ART_K4seIoCfTjIzpi1cj7Y4BMws_bg2vo79LfHtyY7HGZtmXhIfWcIZNiLlP6CUn54&amp;__xts__[0]=68.ARCmCknXfN4mTLVPtk6kaY5EYGGSN8o0eSshnhTGAL4gjMt1d820Dfc0h8uBLFhgKfVlIGAF1YAIESWfb9ybVXoU3yfpjFoNkO8RBQL_DbYXTNwoGE246kEYb0aBTqqiJ3O_DDKOuUz7QX3Mwo7ZuU2xRTxqT6AxjEBqMdLesN8M0LJ77GhCw3DWmGKd8kxuKrVEl9c2DgKQliN5QNegJwhbljPN36d3kNeNJFn4_nxCtgzWmzhq5cOivD93uYAUx609muP7vueXUUmEywFXGn8PeWOTrFT59MYHrCrGfJMoZIg2lZ23ZznhMOsWGc6nPRi1aCtRss7L7P8m4Fu2hCM" data-numposts="10"></div><br>
+<!-- Hiển thị nút đăng nhập bằng facebook-->
+<script>
+  // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else {
+      // The person is not logged into your app or we are unable to tell.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{your-app-id}',
+      cookie     : true,  // enable cookies to allow the server to access 
+                          // the session
+      xfbml      : true,  // parse social plugins on this page
+      version    : 'v2.8' // use graph api version 2.8
+    });
+
+    // Now that we've initialized the JavaScript SDK, we call 
+    // FB.getLoginStatus().  This function gets the state of the
+    // person visiting this page and can return one of three states to
+    // the callback you provide.  They can be:
+    //
+    // 1. Logged into your app ('connected')
+    // 2. Logged into Facebook, but not your app ('not_authorized')
+    // 3. Not logged into Facebook and can't tell if they are logged into
+    //    your app or not.
+    //
+    // These three cases are handled in the callback function.
+
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+</script>
 									</span>
 
 

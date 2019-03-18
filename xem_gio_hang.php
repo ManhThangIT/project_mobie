@@ -298,22 +298,7 @@
 												
 												
 												
-												<li class="nav-item ">				
-													<a class="a-img" href="/gioi-thieu"><span>Giới thiệu</span></a>
-												</li>
 												
-												
-												
-												
-
-
-												
-												
-												
-												
-												<li class="nav-item ">				
-													<a class="a-img" href="/tin-tuc"><span>Khuyến mãi</span></a>
-												</li>
 												
 												
 												
@@ -769,7 +754,7 @@
 
 												</h2><span class="variant-title" style="display: none;">Default Title</span></div><div style="width: 15%" class="a-center">
 
-													<span class="item-price"> <span class="price"><?php echo $tung_san_pham['gia']."₫" ?></span>
+													<span class="item-price"> <span class="price"><?php echo number_format($tung_san_pham['gia'],0)."₫" ?></span>
 												</span></div>
 
 												<div style="width: 14%" class="a-center"><div class="input_qty_pr">
@@ -796,7 +781,7 @@
 												$tien_tung_san_pham = $tung_san_pham['gia']*$tung_san_pham['so_luong'];
 												?>
 
-												<div style="width: 15%" class="a-center"><span class="cart-price"> <span class="price"><?php echo $tien_tung_san_pham."₫"; ?></span> </span></div>
+												<div style="width: 15%" class="a-center"><span class="cart-price"> <span class="price"><?php echo number_format($tien_tung_san_pham,0)."₫"; ?></span> </span></div>
 
 
 
@@ -813,6 +798,9 @@
 												</div>
 												<?php 
 												$tong += $tung_san_pham['gia']*$tung_san_pham['so_luong'];
+												if ($tong>10000000) {
+													echo "<script>alert('Bạn hãy liên hệ chúng tôi để xác nhận đơn hàng'); window.location='index.php';</script>";
+												}
 											} 
 											?>
 
@@ -827,7 +815,7 @@
 												<table class="table shopping-cart-table-total margin-bottom-0" id="shopping-cart-totals-table">
 													<colgroup><col><col></colgroup>
 													<tfoot><tr><td colspan="20" class="a-right">
-														<span>Tổng tiền:</span></td><td class="a-right"><strong><span class="totals_price price"><?php echo $tong."₫" ?></span></strong></td></tr></tfoot>
+														<span>Tổng tiền:</span></td><td class="a-right"><strong><span class="totals_price price"><?php echo number_format($tong,0)."₫" ?></span></strong></td></tr></tfoot>
 													</table>
 													<?php 
 												}

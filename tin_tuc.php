@@ -757,14 +757,7 @@
 
 							<h3 class="blog-item-name"><a href="/samsung-dang-ky-bang-sang-che-loai-phu-kien-mang-tinh-cach-mang-cho-galaxy-s9">Samsung đăng ký bằng sáng chế loại phụ kiện mang tính cách mạng cho Galaxy S9</a>
 							</h3>
-							<div class="date"><i class="fa fa-clock-o"></i> Thứ Hai,
-								<div class="news_home_content_short_time">
-									22/01/2018
-								</div>
-								<span class="cmt_count_blog">
-									<i class="fa fa-comments" aria-hidden="true"></i>(0) Bình luận
-								</span>
-							</div>
+							
 							<p class="blog-item-summary"> Tập đoàn Samsung sản xuất hàng ngàn thiết bị điện tử khác nhau mỗi năm, từ smartphone cho đến tủ lạnh. Gần đây, hãng còn lấn sân sang cả mảng thiết kế vỏ bọc ngoài cho điện thoại. Đặc biệt hơn, phụ kiện mới mà gã khổng lồ Hàn...</p>
 						</div>
 					</div>
@@ -796,14 +789,7 @@
 
 							<h3 class="blog-item-name"><a href="/apple-chinh-thuc-ban-cong-chuyen-cho-phep-vua-cam-sac-vua-nghe-nhac-tren-iphone">Apple chính thức bán cổng chuyển cho phép vừa cắm sạc vừa nghe nhạc trên iPhone 8</a>
 							</h3>
-							<div class="date"><i class="fa fa-clock-o"></i> Thứ Hai,
-								<div class="news_home_content_short_time">
-									22/01/2018
-								</div>
-								<span class="cmt_count_blog">
-									<i class="fa fa-comments" aria-hidden="true"></i>(0) Bình luận
-								</span>
-							</div>
+							
 							<p class="blog-item-summary"> Cách đây một năm, Apple ra mắt iPhone 7 và iPhone 7 Plus với một đột phá lớn về công nghệ. Đó là việc khai tử jack cắm tai nghe 3.5mm và tích hợp cổng âm thanh này vào kết nối lightning. Nhờ vậy, bạn sẽ không thể vừa...</p>
 						</div>
 					</div>
@@ -835,14 +821,7 @@
 
 							<h3 class="blog-item-name"><a href="/can-canh-phu-kien-ban-phim-qwerty-cho-moto-z2-play-cuc-doc-dao">Cận cảnh phụ kiện bàn phím QWERTY cho Moto Z2 Play cực độc đáo</a>
 							</h3>
-							<div class="date"><i class="fa fa-clock-o"></i> Thứ Hai,
-								<div class="news_home_content_short_time">
-									22/01/2018
-								</div>
-								<span class="cmt_count_blog">
-									<i class="fa fa-comments" aria-hidden="true"></i>(1) Bình luận
-								</span>
-							</div>
+							
 							<p class="blog-item-summary"> Cầm trên tay bàn phím cứng Moto Mod mà hãng Livermorium làm cho chiếc Moto Z2 Play, tôi không khỏi xúc động khi kỷ niệm về chiếc smartphone Android đầu tiên của Motorola, Droid, cũng sở hữu bàn phím QWERTY , ùa về. Thế nhưng ngay sau khi dùng...</p>
 						</div>
 					</div>
@@ -874,14 +853,7 @@
 
 							<h3 class="blog-item-name"><a href="/antutu-samsung-la-thuong-hieu-bi-lam-hang-gia-nhieu-nhat-nam-2017">Antutu: Samsung là thương hiệu bị làm hàng giả nhiều nhất năm 2017</a>
 							</h3>
-							<div class="date"><i class="fa fa-clock-o"></i> Thứ Hai,
-								<div class="news_home_content_short_time">
-									22/01/2018
-								</div>
-								<span class="cmt_count_blog">
-									<i class="fa fa-comments" aria-hidden="true"></i>(0) Bình luận
-								</span>
-							</div>
+							
 							<p class="blog-item-summary"> Hầu hết mọi người từng có kinh nghiệm hoặc nghe kể từ một ai đó đã trở thành nạn nhân của giới buôn hàng nhái. Họ xuất hiện gần như ở tất cả những thành phố lớn, trên những con phố nhộn nhịp và cung cấp điện thoại iPhone...</p>
 						</div>
 					</div>
@@ -900,308 +872,21 @@
 				
 		</section>
 		
-		<aside class="blog_hai left left-content col-md-3 col-md-pull-9">
-			<aside class="aside-item sidebar-category collection-category">
-	<div class="aside-title">
-		<h2 class="title-head margin-top-0"></h2>
-	</div>
-	<div class="aside-content">
-		<nav class="nav-category navbar-toggleable-md">
-			<ul class="nav navbar-pills">
-				
-				
-				<li class="nav-item lv1">
-					
-				</li>
-				
-				
-				
-				<li class="nav-item lv1">
-					
-				</li>
-				
-				
-				
-				<li class="nav-item lv1">
-					
-					<i class="fa fa-angle-down"></i>
-					<ul class="dropdown-menu">
-						
-						
-						<li class="dropdown-submenu nav-item lv2">
-							<a class="nav-link" href="/pin-cap-bo-sac">Pin, Cáp &amp; Bộ sạc
-							</a>
-							<i class="fa fa-angle-down"></i>
-							<ul class="dropdown-menu">
-								
-								
-								<li class="dropdown-submenu nav-item lv3">
-									<a class="nav-link" href="/pin-sac-du-phong">Pin sạc sự phòng</a>
-									<i class="fa fa-angle-down"></i>
-									<ul class="dropdown-menu">
-										
-										<li class="dropdown-submenu nav-item lv4">
-											<a class="nav-link" href="/">Sạc dự phòng 1</a>
-										</li>
-										
-										<li class="dropdown-submenu nav-item lv4">
-											<a class="nav-link" href="/">Sạc dự phòng 2</a>
-										</li>
-										
-										<li class="dropdown-submenu nav-item lv4">
-											<a class="nav-link" href="/">Sạc dự phòng 3</a>
-										</li>
-										
-										<li class="dropdown-submenu nav-item lv4">
-											<a class="nav-link" href="/">Sạc dự phòng 4</a>
-										</li>
-										
-									</ul>
-								</li>
-								
-								
-								
-								<li class="dropdown-submenu nav-item lv3">
-									<a class="nav-link" href="/pin-cap-bo-sac">Dây cáp sạc</a>
-									<i class="fa fa-angle-down"></i>
-									<ul class="dropdown-menu">
-										
-										<li class="dropdown-submenu nav-item lv4">
-											<a class="nav-link" href="/">Dây cáp sạc 1</a>
-										</li>
-										
-										<li class="dropdown-submenu nav-item lv4">
-											<a class="nav-link" href="/">Dây cáp sạc 2</a>
-										</li>
-										
-										<li class="dropdown-submenu nav-item lv4">
-											<a class="nav-link" href="/">Dây cáp sạc 3</a>
-										</li>
-										
-										<li class="dropdown-submenu nav-item lv4">
-											<a class="nav-link" href="/">Dây cáp sạc 4</a>
-										</li>
-										
-									</ul>
-								</li>
-								
-								
-								
-								<li class="dropdown-submenu nav-item lv3">
-									<a class="nav-link" href="/pin-cap-bo-sac">Sạc điện thoại</a>
-									<i class="fa fa-angle-down"></i>
-									<ul class="dropdown-menu">
-										
-										<li class="dropdown-submenu nav-item lv4">
-											<a class="nav-link" href="/">Sạc điện thoại 1</a>
-										</li>
-										
-										<li class="dropdown-submenu nav-item lv4">
-											<a class="nav-link" href="/">Sạc điện thoại 2</a>
-										</li>
-										
-										<li class="dropdown-submenu nav-item lv4">
-											<a class="nav-link" href="/">Sạc điện thoại 3</a>
-										</li>
-										
-										<li class="dropdown-submenu nav-item lv4">
-											<a class="nav-link" href="/">Sạc điện thoại 4</a>
-										</li>
-										
-									</ul>
-								</li>
-								
-								
-								
-								<li class="dropdown-submenu nav-item lv3">
-									<a class="nav-link" href="/vo-bao-op-lung">Ốp lưng điện thoại</a>
-									<i class="fa fa-angle-down"></i>
-									<ul class="dropdown-menu">
-										
-										<li class="dropdown-submenu nav-item lv4">
-											<a class="nav-link" href="/">Ốp lưng điện thoại 1</a>
-										</li>
-										
-										<li class="dropdown-submenu nav-item lv4">
-											<a class="nav-link" href="/">Ốp lưng điện thoại 2</a>
-										</li>
-										
-										<li class="dropdown-submenu nav-item lv4">
-											<a class="nav-link" href="/">Ốp lưng điện thoại 3</a>
-										</li>
-										
-										<li class="dropdown-submenu nav-item lv4">
-											<a class="nav-link" href="/">Ốp lưng điện thoại 4</a>
-										</li>
-										
-									</ul>
-								</li>
-								
-								
-							</ul>                      
-						</li>
-						
-						
-						
-						<li class="nav-item lv2">
-							<a class="nav-link" href="/vo-bao-op-lung">Vỏ, bao &amp; Ốp lưng
-							</a>
-						</li>
-						
-						
-						
-						<li class="nav-item lv2">
-							<a class="nav-link" href="/pin-sac-du-phong">Pin sạc dự phòng
-							</a>
-						</li>
-						
-						
-						
-						<li class="nav-item lv2">
-							<a class="nav-link" href="/gia-do-kep">Giá đỡ &amp; Kẹp
-							</a>
-						</li>
-						
-						
-						
-						<li class="nav-item lv2">
-							<a class="nav-link" href="/loa-nghe-nhac">Phụ kiện nghe nhạc
-							</a>
-						</li>
-						
-						
-						
-						<li class="nav-item lv2">
-							<a class="nav-link" href="/gay-chup-hinh">Gậy chụp hình
-							</a>
-						</li>
-						
-						
-						
-						<li class="nav-item lv2">
-							<a class="nav-link" href="/mieng-dan-man-hinh">Miếng dán màn hình
-							</a>
-						</li>
-						
-						
-
-					</ul>
-				</li>
-				
-				
-				
-				<li class="nav-item lv1">
-					
-				</li>
-				
-				
-				
-				<li class="nav-item lv1">
-					
-				</li>
-				
-				
-			</ul>
-		</nav>
-	</div>
-</aside>
+		
 
 
 <div class="blog-aside aside-item blog-aside-article">
 	<div>
-		<div class="aside-title-article">
-			<h2 class="title-head"><span><a href="/tin-tuc">Tin tức liên quan</a></span></h2>
-		</div>
+		
 		<div class="aside-content-article">
 			<div class="blog-list blog-image-list">
 				
-				<div class="loop-blog">
-					<div class="thumb-left">
-						<a href="/samsung-dang-ky-bang-sang-che-loai-phu-kien-mang-tinh-cach-mang-cho-galaxy-s9">
-							
-							<picture>
-								<source media="(max-width: 480px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/samsung-1-1509944001663.jpg?v=1516616547873">
-									<source media="(min-width: 481px) and (max-width: 767px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/samsung-1-1509944001663.jpg?v=1516616547873">
-										<source media="(min-width: 768px) and (max-width: 1023px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/samsung-1-1509944001663.jpg?v=1516616547873">
-											<source media="(min-width: 1024px) and (max-width: 1199px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/samsung-1-1509944001663.jpg?v=1516616547873">
-												<source media="(min-width: 1200px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/samsung-1-1509944001663.jpg?v=1516616547873">
-													<img src="//bizweb.dktcdn.net/100/289/371/articles/samsung-1-1509944001663.jpg?v=1516616547873" style="max-width:100%;" class="img-responsive" title="Samsung đăng ký bằng sáng chế loại phụ kiện mang tính cách mạng cho Galaxy S9" alt="Samsung đăng ký bằng sáng chế loại phụ kiện mang tính cách mạng cho Galaxy S9">
-												</picture>
-												
-											</a>
-										</div>
-										<div class="name-right">
-											<h3><a href="/samsung-dang-ky-bang-sang-che-loai-phu-kien-mang-tinh-cach-mang-cho-galaxy-s9" title="Samsung đăng ký bằng sáng chế loại phụ kiện mang tính cách mạng cho Galaxy S9">Samsung đăng ký bằng sáng chế loại phụ kiện mang tính cách mạng cho Galaxy S9</a></h3>
-											<div class="date"><i class="fa fa-clock-o"></i>Thứ Hai, <div class="news_home_content_short_time">
-												22/01/2018</div></div>
-											</div>
-										</div>
+				
 										
-				<div class="loop-blog">
-					<div class="thumb-left">
-						<a href="/apple-chinh-thuc-ban-cong-chuyen-cho-phep-vua-cam-sac-vua-nghe-nhac-tren-iphone">
-							
-							<picture>
-								<source media="(max-width: 480px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/photo-0-1506911859655.jpg?v=1516616457507">
-									<source media="(min-width: 481px) and (max-width: 767px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/photo-0-1506911859655.jpg?v=1516616457507">
-										<source media="(min-width: 768px) and (max-width: 1023px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/photo-0-1506911859655.jpg?v=1516616457507">
-											<source media="(min-width: 1024px) and (max-width: 1199px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/photo-0-1506911859655.jpg?v=1516616457507">
-												<source media="(min-width: 1200px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/photo-0-1506911859655.jpg?v=1516616457507">
-													<img src="//bizweb.dktcdn.net/100/289/371/articles/photo-0-1506911859655.jpg?v=1516616457507" style="max-width:100%;" class="img-responsive" title="Apple chính thức bán cổng chuyển cho phép vừa cắm sạc vừa nghe nhạc trên iPhone 8" alt="Apple chính thức bán cổng chuyển cho phép vừa cắm sạc vừa nghe nhạc trên iPhone 8">
-												</picture>
-												
-											</a>
-										</div>
-										<div class="name-right">
-											<h3><a href="/apple-chinh-thuc-ban-cong-chuyen-cho-phep-vua-cam-sac-vua-nghe-nhac-tren-iphone" title="Apple chính thức bán cổng chuyển cho phép vừa cắm sạc vừa nghe nhạc trên iPhone 8">Apple chính thức bán cổng chuyển cho phép vừa cắm sạc vừa nghe nhạc trên iPhone 8</a></h3>
-											<div class="date"><i class="fa fa-clock-o"></i>Thứ Hai, <div class="news_home_content_short_time">
-												22/01/2018</div></div>
-											</div>
-										</div>
+				
 										
-				<div class="loop-blog">
-					<div class="thumb-left">
-						<a href="/can-canh-phu-kien-ban-phim-qwerty-cho-moto-z2-play-cuc-doc-dao">
-							
-							<picture>
-								<source media="(max-width: 480px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/img-5130-1-1515764136401.jpg?v=1516616315273">
-									<source media="(min-width: 481px) and (max-width: 767px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/img-5130-1-1515764136401.jpg?v=1516616315273">
-										<source media="(min-width: 768px) and (max-width: 1023px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/img-5130-1-1515764136401.jpg?v=1516616315273">
-											<source media="(min-width: 1024px) and (max-width: 1199px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/img-5130-1-1515764136401.jpg?v=1516616315273">
-												<source media="(min-width: 1200px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/img-5130-1-1515764136401.jpg?v=1516616315273">
-													<img src="//bizweb.dktcdn.net/100/289/371/articles/img-5130-1-1515764136401.jpg?v=1516616315273" style="max-width:100%;" class="img-responsive" title="Cận cảnh phụ kiện bàn phím QWERTY cho Moto Z2 Play cực độc đáo" alt="Cận cảnh phụ kiện bàn phím QWERTY cho Moto Z2 Play cực độc đáo">
-												</picture>
-												
-											</a>
-										</div>
-										<div class="name-right">
-											<h3><a href="/can-canh-phu-kien-ban-phim-qwerty-cho-moto-z2-play-cuc-doc-dao" title="Cận cảnh phụ kiện bàn phím QWERTY cho Moto Z2 Play cực độc đáo">Cận cảnh phụ kiện bàn phím QWERTY cho Moto Z2 Play cực độc đáo</a></h3>
-											<div class="date"><i class="fa fa-clock-o"></i>Thứ Hai, <div class="news_home_content_short_time">
-												22/01/2018</div></div>
-											</div>
-										</div>
-										
-				<div class="loop-blog">
-					<div class="thumb-left">
-						<a href="/antutu-samsung-la-thuong-hieu-bi-lam-hang-gia-nhieu-nhat-nam-2017">
-							
-							<picture>
-								<source media="(max-width: 480px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/dienthoaisamsunggia-800x450.jpg?v=1516616189447">
-									<source media="(min-width: 481px) and (max-width: 767px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/dienthoaisamsunggia-800x450.jpg?v=1516616189447">
-										<source media="(min-width: 768px) and (max-width: 1023px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/dienthoaisamsunggia-800x450.jpg?v=1516616189447">
-											<source media="(min-width: 1024px) and (max-width: 1199px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/dienthoaisamsunggia-800x450.jpg?v=1516616189447">
-												<source media="(min-width: 1200px)" srcset="//bizweb.dktcdn.net/thumb/small/100/289/371/articles/dienthoaisamsunggia-800x450.jpg?v=1516616189447">
-													<img src="//bizweb.dktcdn.net/100/289/371/articles/dienthoaisamsunggia-800x450.jpg?v=1516616189447" style="max-width:100%;" class="img-responsive" title="Antutu: Samsung là thương hiệu bị làm hàng giả nhiều nhất năm 2017" alt="Antutu: Samsung là thương hiệu bị làm hàng giả nhiều nhất năm 2017">
-												</picture>
-												
-											</a>
-										</div>
-										<div class="name-right">
-											<h3><a href="/antutu-samsung-la-thuong-hieu-bi-lam-hang-gia-nhieu-nhat-nam-2017" title="Antutu: Samsung là thương hiệu bị làm hàng giả nhiều nhất năm 2017">Antutu: Samsung là thương hiệu bị làm hàng giả nhiều nhất năm 2017</a></h3>
-											<div class="date"><i class="fa fa-clock-o"></i>Thứ Hai, <div class="news_home_content_short_time">
-												22/01/2018</div></div>
-											</div>
-										</div>
+			
+				
 										
 									</div>
 								</div>
@@ -1375,80 +1060,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-xs-12 col-sm-6 col-md-25 col-lg-25">
-						<div class="widget-ft">
-							<h4 class="title-menu">
-								<a role="button" class="collapsed" data-toggle="collapse" aria-expanded="false" data-target="#collapseListMenu02" aria-controls="collapseListMenu02">
-									Giới thiệu <i class="fa fa-plus" aria-hidden="true"></i>
-								</a>
-							</h4>
-							<div class="collapse" id="collapseListMenu02">
-								<ul class="list-menu">
-									
-									<li class="li_menu"><a href="/">Trang chủ</a></li>
-									
-									<li class="li_menu"><a href="/gioi-thieu">Giới thiệu</a></li>
-									
-									<li class="li_menu"><a href="/collections/all">Sản phẩm</a></li>
-									
-									<li class="li_menu"><a href="/tin-tuc">Tin khuyến mãi</a></li>
-									
-									<li class="li_menu"><a href="/lien-he">Liên hệ</a></li>
-									
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-6 col-md-25 col-lg-25">
-						<div class="widget-ft">
-							<h4 class="title-menu">
-								<a role="button" class="collapsed" data-toggle="collapse" aria-expanded="false" data-target="#collapseListMenu03" aria-controls="collapseListMenu03">
-									Hỗ trợ khách hàng <i class="fa fa-plus" aria-hidden="true"></i>
-								</a>
-							</h4>
-							<div class="collapse time_work" id="collapseListMenu03">
-								<ul class="list-menu">
-									
-									<li class="li_menu"><a href="/">Trang chủ</a></li>
-									
-									<li class="li_menu"><a href="/gioi-thieu">Giới thiệu</a></li>
-									
-									<li class="li_menu"><a href="/collections/all">Sản phẩm</a></li>
-									
-									<li class="li_menu"><a href="/tin-tuc">Tin khuyến mãi</a></li>
-									
-									<li class="li_menu"><a href="/lien-he">Liên hệ</a></li>
-									
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-						<div class="widget-ft last-child">
-							<h4 class="title-menu title-db">
-								<a role="button" class="collapsed" data-toggle="collapse" aria-expanded="false" data-target="#collapseListMenu04" aria-controls="collapseListMenu04">
-									Chính sách <i class="fa fa-plus" aria-hidden="true"></i>
-								</a>
-							</h4>
-							<div class="collapse" id="collapseListMenu04">
-								
-							<ul class="list-menu">
-								
-								<li class="li_menu"><a href="/">Trang chủ</a></li>
-								
-								<li class="li_menu"><a href="/gioi-thieu">Giới thiệu</a></li>
-								
-								<li class="li_menu"><a href="/collections/all">Sản phẩm</a></li>
-								
-								<li class="li_menu"><a href="/tin-tuc">Tin khuyến mãi</a></li>
-								
-								<li class="li_menu"><a href="/lien-he">Liên hệ</a></li>
-								
-							</ul>
-							
-						</div>
-					</div>
-				</div>
+
+					
+					
 			</div>
 			<div class="border-bottom-1px"></div>
 		</div>
@@ -1473,11 +1087,11 @@
 							<li class="sdt">
 								<span> Hotline:</span>
 								
-								<a href="tel:(04)66742332">(04)66742332</a>
+								<a href="tel:0981744199">0981744199</a>
 								
 								<span class="email_style"><span> Email:</span>
 								
-								<a href="mailto:support@bizweb.vn"> support@bizweb.vn</a>
+								<a href="mailto:ManhThangIT@gmail.com"> ManhThangIT@gmail.com</a>
 									
 							</span>
 						</li>

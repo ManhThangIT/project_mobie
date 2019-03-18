@@ -200,18 +200,48 @@
 
 											
 											<a href="./index.php" class="logo-wrapper ">					
-												<img src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/logo.png?1524126221691" alt="logo ">					
+												<img src="./img/logo.png" alt="logo ">					
 											</a>
 											
 										</div>
 									</div>
+									<?php 
+									include 'connect_database.php';
+									$tim_kiem = "";
+									if(isset($_GET['tim_kiem'])){
+										$tim_kiem = strip_tags(addslashes($_GET['tim_kiem']));
+									}
+									$page = 1;
+									if(isset($_GET['page'])){
+										$page = $_GET['page'];
+									}
+
+									$limit = 1;
+
+
+									$offset = ($page-1)*$limit;
+
+									$query_show = "SELECT * from san_pham
+									join nha_san_xuat
+									on san_pham.ma_nha_san_xuat = nha_san_xuat.ma_nha_san_xuat
+									where ten_san_pham  like '%$tim_kiem%'
+									limit $limit offset $offset";
+									$result_show = mysqli_query($connect,$query_show);
+
+									$query_count = "SELECT count(*) from san_pham
+									where ten_san_pham like '%$tim_kiem%'";
+									$result_count = mysqli_query($connect,$query_count);
+									$row_count    = mysqli_fetch_array($result_count);
+									$count        = $row_count['count(*)'];
+
+									?>
 									<div class="col-lg-6 col-md-6">
 										<div class="header-left">
 											<div class="header_search hidden-xs hidden-sm">
-												<form action="/search" method="get" class="input-group search-bar" role="search">
+												<form class="input-group search-bar" role="search">
 													<input type="hidden" name="type" value="product">
 
-													<input type="search" name="query" value="" placeholder="Bạn đang tìm sản phẩm gì..." class="input-group-field">
+													<input type="search" name="tim_kiem" value="<?php echo $tim_kiem ?>" placeholder="Bạn đang tìm sản phẩm gì..." class="input-group-field">
 													<span class="input-group-btn">
 														<button type="submit" class="btn icon-fallback-text">
 															Tìm kiếm      
@@ -219,18 +249,7 @@
 													</span>
 												</form>
 											</div>
-											<div class="header_search hidden-lg hidden-md">
-												<form action="/search" method="get" class="input-group search-bar" role="search">
-													<input type="hidden" name="type" value="product">
-
-													<input type="search" name="query" value="" placeholder="Tìm kiếm..." class="input-group-field">
-													<span class="input-group-btn">
-														<button type="submit" class="btn icon-fallback-text">
-															Tìm kiếm      
-														</button>
-													</span>
-												</form>
-											</div>
+											
 
 										</div>
 									</div>
@@ -242,7 +261,7 @@
 											<div class="top-cart-contain f-right hidden-xs hidden-sm visible-md visible-lg">
 												<div class="mini-cart text-xs-center">
 													<div class="heading-cart">
-														<a class="bg_cart" href="./giohang.php" title="Giỏ hàng">
+														<a class="bg_cart" href="./xem_gio_hang.php" title="Giỏ hàng">
 															<i class="ion-android-cart"></i>
 															<!-- <span class="count_item count_item_pr"></span> -->
 															<span class="text-giohang hidden-xs">Giỏ hàng</span>
@@ -317,21 +336,7 @@
 													
 													
 													
-													<li class="nav-item ">				
-														<a class="a-img" href="/gioi-thieu"><span>Giới thiệu</span></a>
-													</li>
-													
-													
-													
-													
 
-													
-													
-													
-													
-													<li class="nav-item ">				
-														<a class="a-img" href="/tin-tuc"><span>Khuyến mãi</span></a>
-													</li>
 													
 													
 													
@@ -404,88 +409,88 @@
 								<div class="row">
 									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-hg-12">
 										<form accept-charset='UTF-8' action='./process_register.php' id='customer_register' method='post'>
-									<input name='FormType' type='hidden' value='customer_register' />
-									<input name='utf8' type='hidden' value='true' />
+											<input name='FormType' type='hidden' value='customer_register' />
+											<input name='utf8' type='hidden' value='true' />
 
-									<div class="fw clearfix form-signup row">
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<label>Họ và tên:</label>
-											<input type="text" class="form-control form-control-lg"  name="ten_khach_hang" id="ho_ten">
-										</fieldset>
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<p id="bao_loi_ho_ten" style="color: red;"></p>
-										</fieldset>
-
-
-
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<label>Số Điện Thoại:</label>
-											<input type="number" class="form-control form-control-lg"  name="sdt" id="sdt" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-										</fieldset> 
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<p id="bao_loi_sdt" style="color: red;"></p>
-										</fieldset>
+											<div class="fw clearfix form-signup row">
+												<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<label>Họ và tên:</label>
+													<input type="text" class="form-control form-control-lg"  name="ten_khach_hang" id="ho_ten">
+												</fieldset>
+												<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<p id="bao_loi_ho_ten" style="color: red;"></p>
+												</fieldset>
 
 
 
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<label>Email:</label>
-											<input type="email" class="form-control form-control-lg"  name="email" id="gmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
-										</fieldset>
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<p id="bao_loi_gmail" style="color: red;"></p>
-										</fieldset>
+												<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<label>Số Điện Thoại:</label>
+													<input type="number" class="form-control form-control-lg"  name="sdt" id="sdt" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+												</fieldset> 
+												<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<p id="bao_loi_sdt" style="color: red;"></p>
+												</fieldset>
 
 
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<label>Mật khẩu:</label>
-											<input type="password" class="form-control form-control-lg" name="mat_khau" id="mat_khau" minlength=6 maxlength=32 >
-										</fieldset>
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<p id="bao_loi_mat_khau" style="color: red;"></p>
-										</fieldset>
+
+												<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<label>Email:</label>
+													<input type="email" class="form-control form-control-lg"  name="email" id="gmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+												</fieldset>
+												<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<p id="bao_loi_gmail" style="color: red;"></p>
+												</fieldset>
 
 
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<label>Nhập lại mật khẩu:</label>
-											<input type="password" class="form-control form-control-lg"   name="mat_khau" id="nl_mat_khau" minlength=6 maxlength=32  >
-										</fieldset>
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<p id="bao_loi_nl_mat_khau" style="color: red;"></p>
-										</fieldset>
+												<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<label>Mật khẩu:</label>
+													<input type="password" class="form-control form-control-lg" name="mat_khau" id="mat_khau" minlength=6 maxlength=32 >
+												</fieldset>
+												<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<p id="bao_loi_mat_khau" style="color: red;"></p>
+												</fieldset>
 
 
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<label>Ngày Sinh:</label>
-											<input type="date" class="form-control form-control-lg" name="ngay_sinh">
-										</fieldset>
-
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<label>Địa Chỉ:</label>
-											<input type="text" class="form-control form-control-lg"   name="dia_chi" id="dia_chi" minlength=6 maxlength=32 >
-										</fieldset>
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<p id="bao_loi_dia_chi" style="color: red;"></p>
-										</fieldset>
+												<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<label>Nhập lại mật khẩu:</label>
+													<input type="password" class="form-control form-control-lg"   name="mat_khau" id="nl_mat_khau" minlength=6 maxlength=32  >
+												</fieldset>
+												<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<p id="bao_loi_nl_mat_khau" style="color: red;"></p>
+												</fieldset>
 
 
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<label>Giới Tính:</label>
-											<select name="gioi_tinh">
-												<option value="1">Nam</option>
-												<option value="0">Nữ</option>
-											</select>
-										</fieldset>
+												<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<label>Ngày Sinh:</label>
+													<input type="date" class="form-control form-control-lg" name="ngay_sinh">
+												</fieldset>
 
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<button class="btn-bg btn btn-lg btn-style btn-style-active btn_submit" onClick="return fsubmit();" name="xu_ly">Đăng ký tài khoản</button>
-										</fieldset>
+												<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<label>Địa Chỉ:</label>
+													<input type="text" class="form-control form-control-lg"   name="dia_chi" id="dia_chi" minlength=6 maxlength=32 >
+												</fieldset>
+												<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<p id="bao_loi_dia_chi" style="color: red;"></p>
+												</fieldset>
 
-										<div class="bt_login a-left other_ways">
-											<span class="hai_tk">Bạn đã có tài khoản ?<a href="#" class="btn-link-style login_btn" title="Đăng nhập"> Đăng nhập tại đây</a></span>
-										</div>
-									</div>
-								</form>
+
+												<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<label>Giới Tính:</label>
+													<select name="gioi_tinh">
+														<option value="1">Nam</option>
+														<option value="0">Nữ</option>
+													</select>
+												</fieldset>
+
+												<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<button class="btn-bg btn btn-lg btn-style btn-style-active btn_submit" onClick="return fsubmit();" name="xu_ly">Đăng ký tài khoản</button>
+												</fieldset>
+
+												<div class="bt_login a-left other_ways">
+													<span class="hai_tk">Bạn đã có tài khoản ?<a href="#" class="btn-link-style login_btn" title="Đăng nhập"> Đăng nhập tại đây</a></span>
+												</div>
+											</div>
+										</form>
 
 
 
@@ -515,83 +520,83 @@
 				</div>
 
 				<script>
-			
-			function fsubmit() {
-				var ho_ten=document.getElementById('ho_ten').value;
-				var regex_ho_ten =/^[a-z A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]{5,50}$/;
-				var result_ho_ten=regex_ho_ten.test(ho_ten);
-				if (result_ho_ten== false) {
-					document.getElementById('bao_loi_ho_ten').innerHTML = 'Sai định dạng họ tên';
-					document.getElementById('ho_ten').focus();
-					return false;   
-				}
-				else{
-					document.getElementById('bao_loi_ho_ten').style.display='none';
-					document.getElementById('tick').style.display='block';
-				}
-				var gmail=document.getElementById('gmail').value;
-				var regex_gmail =/[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/igm;
-				var result_gmail=regex_gmail.test(gmail);
-				if (result_gmail== false) {
-					document.getElementById('bao_loi_gmail').innerHTML = 'Sai định dạng Email';
-					document.getElementById('gmail').focus();
-					return false;   
-				}
-				else{
-					document.getElementById('bao_loi_gmail').style.display='none';
-					document.getElementById('tick1').style.display='block';
-				}
-				var mat_khau=document.getElementById('mat_khau').value;
-				var regex_mat_khau =/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$/;
-				var result_mat_khau=regex_mat_khau.test(mat_khau);
-				if (result_mat_khau== false) {
-					document.getElementById('bao_loi_mat_khau').innerHTML = 'Mật khẩu ít nhất 8 ký tự';
-					document.getElementById('mat_khau').focus();
-					return false;   
-				}
-				else{
-					document.getElementById('bao_loi_mat_khau').style.display='none';
-					document.getElementById('tick2').style.display='block';
-				}
-				var nl_mat_khau=document.getElementById('nl_mat_khau').value;
-				var mat_khau=document.getElementById('mat_khau').value;
-				if (mat_khau=nl_mat_khau) {
-					document.getElementById('bao_loi_nl_mat_khau').style.display='none';
-					document.getElementById('tick3').style.display='block';
 
-				}
-				else {
-					document.getElementById('bao_loi_nl_mat_khau').innerHTML = 'Mật khẩu không trùng nhau';
-					document.getElementById('bao_loi_nl_mat_khau').focus();
+					function fsubmit() {
+						var ho_ten=document.getElementById('ho_ten').value;
+						var regex_ho_ten =/^[a-z A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]{5,50}$/;
+						var result_ho_ten=regex_ho_ten.test(ho_ten);
+						if (result_ho_ten== false) {
+							document.getElementById('bao_loi_ho_ten').innerHTML = 'Sai định dạng họ tên';
+							document.getElementById('ho_ten').focus();
+							return false;   
+						}
+						else{
+							document.getElementById('bao_loi_ho_ten').style.display='none';
+							document.getElementById('tick').style.display='block';
+						}
+						var gmail=document.getElementById('gmail').value;
+						var regex_gmail =/[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/igm;
+						var result_gmail=regex_gmail.test(gmail);
+						if (result_gmail== false) {
+							document.getElementById('bao_loi_gmail').innerHTML = 'Sai định dạng Email';
+							document.getElementById('gmail').focus();
+							return false;   
+						}
+						else{
+							document.getElementById('bao_loi_gmail').style.display='none';
+							document.getElementById('tick1').style.display='block';
+						}
+						var mat_khau=document.getElementById('mat_khau').value;
+						var regex_mat_khau =/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$/;
+						var result_mat_khau=regex_mat_khau.test(mat_khau);
+						if (result_mat_khau== false) {
+							document.getElementById('bao_loi_mat_khau').innerHTML = 'Mật khẩu ít nhất 8 ký tự';
+							document.getElementById('mat_khau').focus();
+							return false;   
+						}
+						else{
+							document.getElementById('bao_loi_mat_khau').style.display='none';
+							document.getElementById('tick2').style.display='block';
+						}
+						var nl_mat_khau=document.getElementById('nl_mat_khau').value;
+						var mat_khau=document.getElementById('mat_khau').value;
+						if (mat_khau=nl_mat_khau) {
+							document.getElementById('bao_loi_nl_mat_khau').style.display='none';
+							document.getElementById('tick3').style.display='block';
 
-					return false;
-				}
-				var dia_chi=document.getElementById('dia_chi').value;
-				var regex_dia_chi=/^[a-z\,\ ]{5,25}[a-z\,\ ]{5,30}$/i;
-				var result_dia_chi=regex_dia_chi.test(dia_chi);
-				if (result_dia_chi== false) {
-					document.getElementById('bao_loi_dia_chi').innerHTML = 'Địa chỉ không hợp lệ';
-					document.getElementById('dia_chi').focus();
-					return false;   
-				}
-				else{
-					document.getElementById('bao_loi_dia_chi').style.display='none';
-					document.getElementById('tick4').style.display='block';
-				}
-				var sdt=document.getElementById('sdt').value;
-				var regex_sdt=/^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
-				var result_sdt=regex_sdt.test(sdt);
-				if (result_sdt== false) {
-					document.getElementById('bao_loi_sdt').innerHTML = 'Nhập sai số điện thoại';
-					document.getElementById('sdt').focus();
-					return false;   
-				}
-				else{
-					document.getElementById('bao_loi_sdt').style.display='none';
-					document.getElementById('tick5').style.display='block';
-				}
+						}
+						else {
+							document.getElementById('bao_loi_nl_mat_khau').innerHTML = 'Mật khẩu không trùng nhau';
+							document.getElementById('bao_loi_nl_mat_khau').focus();
 
-			}
+							return false;
+						}
+						var dia_chi=document.getElementById('dia_chi').value;
+						var regex_dia_chi=/^[a-z\,\ ]{5,25}[a-z\,\ ]{5,30}$/i;
+						var result_dia_chi=regex_dia_chi.test(dia_chi);
+						if (result_dia_chi== false) {
+							document.getElementById('bao_loi_dia_chi').innerHTML = 'Địa chỉ không hợp lệ';
+							document.getElementById('dia_chi').focus();
+							return false;   
+						}
+						else{
+							document.getElementById('bao_loi_dia_chi').style.display='none';
+							document.getElementById('tick4').style.display='block';
+						}
+						var sdt=document.getElementById('sdt').value;
+						var regex_sdt=/^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
+						var result_sdt=regex_sdt.test(sdt);
+						if (result_sdt== false) {
+							document.getElementById('bao_loi_sdt').innerHTML = 'Nhập sai số điện thoại';
+							document.getElementById('sdt').focus();
+							return false;   
+						}
+						else{
+							document.getElementById('bao_loi_sdt').style.display='none';
+							document.getElementById('tick5').style.display='block';
+						}
+
+					}
 
 
 
@@ -636,28 +641,13 @@
 				$('#login_register').removeClass('fix_height_login');
 			});
 		</script>
-			</header>
+	</header>
 
 
 
 
-			<section class="awe-section-1">	
-				<div class="home-slider owl-carousel owl-theme not-aweowl owl-loaded owl-drag">
-
-
-
-
-
-
-					
-
-
-
-
-
-
-
-					
+	<section class="awe-section-1">	
+		<div class="home-slider owl-carousel owl-theme not-aweowl owl-loaded owl-drag">
 
 
 
@@ -678,12 +668,6 @@
 
 
 
-					<div class="owl-stage-outer"></div><div class="owl-nav disabled"><div class="owl-prev disabled">prev</div><div class="owl-next">next</div></div><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div></div></div>
-				</section>
-
-
-
-				
 
 
 
@@ -694,526 +678,568 @@
 
 
 
-				<div class="container">
-					<div class="row row-noGutter-2">					
-						<section class="main_container collection margin-bottom-30 col-lg-12">
-							<!-- __________________Tên danh mục_______________ -->
+
+
+
+
+
+			<div class="owl-stage-outer"></div><div class="owl-nav disabled"><div class="owl-prev disabled">prev</div><div class="owl-next">next</div></div><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div></div></div>
+		</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="container">
+			<div class="row row-noGutter-2">					
+				<section class="main_container collection margin-bottom-30 col-lg-12">
+					<!-- __________________Tên danh mục_______________ -->
+
+
+					<div class="text-sm-left">			
+						<h1 class="title-head margin-top-0">
+							<?php
+							$crumbs = explode("/",$_SERVER["REQUEST_URI"]);
+							foreach($crumbs as $crumb){
+								echo ucfirst(
+									str_replace(
+										array(".php","_","?"),
+										array("","",">>"),
+										$crumb).">>"
+								);
+							} ?>
 							
-							
-							<div class="text-sm-left">			
-								<h1 class="title-head margin-top-0">TÊN DANH MỤC TẠM THỜI ĐÉO IN RA ĐƯỢC</h1>
-							</div>
+						</h1>
+					</div>
 
-							
-							
-							
-							
-							
-							<aside class="aside-item category aside_sapxep">
-								<div id="sort-by" class="sorby_xxx">
-									<label class="left hidden-xs hidden-sm hidden-md">Sắp xếp theo: </label>
-									<ul>
-										<li><span>Thứ tự</span>
-											<ul>                    
-												<li><a href="javascript:;" onclick="sortby('default')">Mặc định</a></li>								
-												<li><a href="javascript:;" onclick="sortby('alpha-asc')">A → Z</a></li>
-												<li><a href="javascript:;" onclick="sortby('alpha-desc')">Z → A</a></li>
-												<li><a href="javascript:;" onclick="sortby('price-asc')">Giá tăng dần</a></li>
-												<li><a href="javascript:;" onclick="sortby('price-desc')">Giá giảm dần</a></li>
-												
-											</ul>
-										</li>
+
+
+
+
+
+					<aside class="aside-item category aside_sapxep">
+						<div id="sort-by" class="sorby_xxx">
+							<label class="left hidden-xs hidden-sm hidden-md">Sắp xếp theo: </label>
+							<ul>
+								<li><span>Thứ tự</span>
+									<ul>                    
+										<li><a href="javascript:;" onclick="sortby('default')">Mặc định</a></li>								
+										<li><a href="javascript:;" onclick="sortby('alpha-asc')">A → Z</a></li>
+										<li><a href="javascript:;" onclick="sortby('alpha-desc')">Z → A</a></li>
+										<li><a href="javascript:;" onclick="sortby('price-asc')">Giá tăng dần</a></li>
+										<li><a href="javascript:;" onclick="sortby('price-desc')">Giá giảm dần</a></li>
+
 									</ul>
-								</div>
-							</aside>
-						</div>	
-						
-					</aside>
-
-
-
-					<div class="category-products products">
-						
-
-						<section class="products-view products-view-grid collection_reponsive">
-							<div class="row row-noGutter-2 content_col">
-								
-								
-								
-								<?php 
-								include 'connect_database.php';
-								$tim_kiem = "";
-								if(isset($_GET['tim_kiem'])){
-									$tim_kiem = $_GET['tim_kiem'];
-									$query = "select * from san_pham
-									where ten_san_pham like '%$tim_kiem%'";
-								}
-								else if(isset($_GET['ma_danh_muc'])){
-									$ma_danh_muc = $_GET['ma_danh_muc'];
-									$query = "select * from danhmuc_sanpham
-									join san_pham
-									on san_pham.ma_san_pham = danhmuc_sanpham.ma_san_pham
-									where ma_danh_muc = '$ma_danh_muc'";
-								}
-								$result = mysqli_query($connect,$query);
-								?>
-								
-								
-								
-								
-								
-								
-								
-								
-								
-								
-								<?php while ($row = mysqli_fetch_array($result)) { ?>
-									
-									<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 col-lg-fix-5">
-										
-										<div class="product-col">
-											
-
-
-
-
-											<div class="product-box-h">
-												<div class="row">
-													<div class="col-sm-12 col-md-12 col-lg-12">
-														<div class="product-thumbnail">
-															
-															<a class="image_link display_flex">
-																<img src="../khachhang/dashboard/san_phamx/<?php echo $row['anh']?>">
-															</a>
-															
-
-															
-															
-														</div>
-														<div class="col-sm-12 col-md-12 col-lg-12">
-															<div class="product-info a-left">
-																
-																<h3 class="product-name">
-																	<a class="height_name text2line" href="chi_tiet_san_pham.php?ma_san_pham=<?php echo $row['ma_san_pham']; ?>"> <?php echo $row['ten_san_pham'] ?> 
-																</a>
-															</h3>
-															<div class="product-hides">
-																
-																<div class="product-hide">
-
-																	
-																	
-																	<div class="price-box clearfix">			
-																		<div class="special-price">
-																			<span class="price product-price"><?php 
-																			$num = $row['gia'];
-																			$dinh_dang = number_format($num, 3);
-																			echo $dinh_dang."đ"; ?></span>
-																		</div>
-																		
-																		
-
-																		
-																	</div>		
-																	
-																	
-																</div>
-															</div>
-															<div class="product-action clearfix hidden-xs">
-																<form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-9722892" enctype="multipart/form-data">
-																	<div>
-																		
-																		<input class="hidden" type="hidden" name="variantId" value="15528471">
-																		<button class="btn btn-cart btn btn-circle left-to">
-																			Thêm Vào Giỏ
-																		</button>
-																		
-																		
-																		
-																		
-																		
-																	</div>
-																</form>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>	
-										</div>
-										
-									</div>
-								</div>
-								<?php
-							}
-							
-							?>		
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							<div class="text-center">
-								
-							</div>
-						</section>		
-						
-						
-					</div>
-				</section>
-				
-			</div>
-		</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		<link href="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/bpr-products-module.css?1524126221691" rel="stylesheet" type="text/css">
-		<div class="bizweb-product-reviews-module"></div> 
-
-
-
-
-
-		<!-- _____________CHÂN TRANG____________ -->
-		<footer class="footer">
-			<div class="site-footer">
-				<div class="top-footer">
-					<div class="container">
-						<div class="row">
-							<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-								<div class="widget-ft">
-									<h4 class="title-menu">
-										<a role="button" class="collapsed" data-toggle="collapse" aria-expanded="false" data-target="#collapseListMenu01" aria-controls="collapseListMenu01">
-											Hệ thống cửa hàng <i class="fa fa-plus" aria-hidden="true"></i>
-										</a>
-									</h4>
-									<div class="collapse" id="collapseListMenu01">
-										<div class="list-menu">
-											<div class="widget-ft wg-logo">
-												
-												
-												
-												
-												
-												
-												
-												
-												<div class="item">
-													<h4 class="title-menu4 icon_none_first">
-														<a>Digiworld Đội Cấn</a>
-													</h4>
-													<ul class="contact contact_x">
-														<li>
-															<span class="txt_content_child">
-																<span>Địa chỉ:</span>
-																Tầng 8 Ladeco, 266 Đội Cấn, Hà Nội
-															</span>
-														</li>
-														
-														<li class="sdt">
-															<span> Hotline:</span>
-															<a href="tel:(04)66742332">(04)66742332</a>
-														</li>
-														
-													</ul>
-												</div>
-
-
-												
-												
-												
-												
-												
-												
-												<div class="item">
-													<h4 class="title-menu4 icon_none_first">
-														<a>Digiwolrd Thái Hà</a>
-													</h4>
-													<ul class="contact contact_x">
-														<li>
-															<span class="txt_content_child">
-																<span>Địa chỉ:</span>
-																365 Thái Hà, Đống Đa, Hà Nội, Hà Nội
-															</span>
-														</li>
-														
-														<li class="sdt">
-															<span> Hotline:</span>
-															<a href="tel:0968688989">0968688989</a>
-														</li>
-														
-													</ul>
-												</div>
-
-
-												
-												
-												
-												
-												
-												
-												<div class="item">
-													<h4 class="title-menu4 icon_none_first">
-														<a>Digiworld Nguyễn Trãi</a>
-													</h4>
-													<ul class="contact contact_x">
-														<li>
-															<span class="txt_content_child">
-																<span>Địa chỉ:</span>
-																58 Nguyễn Trãi, Thanh Xuân, Hà Nội, Hà Nội
-															</span>
-														</li>
-														
-														<li class="sdt">
-															<span> Hotline:</span>
-															<a href="tel:01659685999">01659685999</a>
-														</li>
-														
-													</ul>
-												</div>
-
-
-												
-												
-												
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xs-12 col-sm-6 col-md-25 col-lg-25">
-								<div class="widget-ft">
-									<h4 class="title-menu">
-										<a role="button" class="collapsed" data-toggle="collapse" aria-expanded="false" data-target="#collapseListMenu02" aria-controls="collapseListMenu02">
-											Giới thiệu <i class="fa fa-plus" aria-hidden="true"></i>
-										</a>
-									</h4>
-									<div class="collapse" id="collapseListMenu02">
-										<ul class="list-menu">
-											
-											<li class="li_menu"><a href="/">Trang chủ</a></li>
-											
-											<li class="li_menu"><a href="/gioi-thieu">Giới thiệu</a></li>
-											
-											<li class="li_menu"><a href="/collections/all">Sản phẩm</a></li>
-											
-											<li class="li_menu"><a href="/tin-tuc">Tin khuyến mãi</a></li>
-											
-											<li class="li_menu"><a href="/lien-he">Liên hệ</a></li>
-											
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="col-xs-12 col-sm-6 col-md-25 col-lg-25">
-								<div class="widget-ft">
-									<h4 class="title-menu">
-										<a role="button" class="collapsed" data-toggle="collapse" aria-expanded="false" data-target="#collapseListMenu03" aria-controls="collapseListMenu03">
-											Hỗ trợ khách hàng <i class="fa fa-plus" aria-hidden="true"></i>
-										</a>
-									</h4>
-									<div class="collapse time_work" id="collapseListMenu03">
-										<ul class="list-menu">
-											
-											<li class="li_menu"><a href="/">Trang chủ</a></li>
-											
-											<li class="li_menu"><a href="/gioi-thieu">Giới thiệu</a></li>
-											
-											<li class="li_menu"><a href="/collections/all">Sản phẩm</a></li>
-											
-											<li class="li_menu"><a href="/tin-tuc">Tin khuyến mãi</a></li>
-											
-											<li class="li_menu"><a href="/lien-he">Liên hệ</a></li>
-											
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-								<div class="widget-ft last-child">
-									<h4 class="title-menu title-db">
-										<a role="button" class="collapsed" data-toggle="collapse" aria-expanded="false" data-target="#collapseListMenu04" aria-controls="collapseListMenu04">
-											Chính sách <i class="fa fa-plus" aria-hidden="true"></i>
-										</a>
-									</h4>
-									<div class="collapse" id="collapseListMenu04">
-										
-										<ul class="list-menu">
-											
-											<li class="li_menu"><a href="/">Trang chủ</a></li>
-											
-											<li class="li_menu"><a href="/gioi-thieu">Giới thiệu</a></li>
-											
-											<li class="li_menu"><a href="/collections/all">Sản phẩm</a></li>
-											
-											<li class="li_menu"><a href="/tin-tuc">Tin khuyến mãi</a></li>
-											
-											<li class="li_menu"><a href="/lien-he">Liên hệ</a></li>
-											
-										</ul>
-										
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="border-bottom-1px"></div>
-					</div>
-				</div>
-				<div class="mid-footer">
-					<div class="container">
-						<div class="row">
-							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-5">
-								<div class="widget-ft wg-logo">
-									<h4 class="title-menu2 icon_none_first">
-										<a>Công ty cổ phần đầu tư thương mại thế giới số Digiworld</a>
-									</h4>
-									<ul class="contact">
-										<li>
-											<span class="txt_content_child">
-												<span> Địa chỉ:</span>
-												
-												Tầng 8 Ladeco, 266 Đội Cấn, Hà Nội
-												
-											</span>
-										</li>
-										<li class="sdt">
-											<span> Hotline:</span>
-											
-											<a href="tel:(04)66742332">(04)66742332</a>
-											
-											<span class="email_style"><span> Email:</span>
-											
-											<a href="mailto:support@bizweb.vn"> support@bizweb.vn</a>
-											
-										</span>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 pay_footer">
-							<h4 class="title-menu2 icon_none_first">
-								<a>Chấp nhận thanh toán</a>
-							</h4>
-							<ul class="follow_option">
-								
-								
-								<li>
-									<a href="#"><img src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/pay_1.png?1524126221691" alt="Digiworld"></a>
 								</li>
-								
-								
-								<li>
-									<a href="#"><img src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/pay_2.png?1524126221691" alt="Digiworld"></a>
-								</li>
-								
-								
-								<li>
-									<a href="#"><img src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/pay_3.png?1524126221691" alt="Digiworld"></a>
-								</li>
-								
-								
-								<li>
-									<a href="#"><img src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/pay_4.png?1524126221691" alt="Digiworld"></a>
-								</li>
-								
-								
-								<li>
-									<a href="#"><img src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/pay_5.png?1524126221691" alt="Digiworld"></a>
-								</li>
-								
 							</ul>
 						</div>
-						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 social_footer">
-							<h4 class="title-menu2 icon_none_first icon_title_last">
-								<a>Khiếu nại &amp; Chăm sóc khách hàng</a>
+					</aside>
+				</div>	
+
+			</aside>
+
+
+
+			<div class="category-products products">
+
+
+				<section class="products-view products-view-grid collection_reponsive">
+					<div class="row row-noGutter-2 content_col">
+
+
+
+						<?php 
+						include 'connect_database.php';
+						$tim_kiem = "";
+						if(isset($_GET['tim_kiem'])){
+							$tim_kiem = $_GET['tim_kiem'];
+							$query = "select * from san_pham
+							where ten_san_pham like '%$tim_kiem%'";
+						}
+						else if(isset($_GET['ma_danh_muc'])){
+							$ma_danh_muc = $_GET['ma_danh_muc'];
+							$query = "select * from danhmuc_sanpham
+							join san_pham
+							on san_pham.ma_san_pham = danhmuc_sanpham.ma_san_pham
+							where ma_danh_muc = '$ma_danh_muc'";
+						}
+						$result = mysqli_query($connect,$query);
+						?>
+
+
+						<?php while ($row = mysqli_fetch_array($result)) { ?>
+
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 col-lg-fix-5">
+
+								<div class="product-col">
+
+
+
+
+
+									<div class="product-box-h">
+										<div class="row">
+											<div class="col-sm-12 col-md-12 col-lg-12">
+												<div class="product-thumbnail">
+
+													<a class="image_link display_flex">
+														<img src="../khachhang/dashboard/san_phamx/<?php echo $row['anh']?>">
+													</a>
+
+
+
+
+												</div>
+												<div class="col-sm-12 col-md-12 col-lg-12">
+													<div class="product-info a-left">
+
+														<h3 class="product-name">
+															<a class="height_name text2line" href="chi_tiet_san_pham.php?ma_san_pham=<?php echo $row['ma_san_pham']; ?>"> <?php echo $row['ten_san_pham'] ?> 
+														</a>
+													</h3>
+													<div class="product-hides">
+
+														<div class="product-hide">
+
+
+
+															<div class="price-box clearfix">			
+																<div class="special-price">
+																	<span class="price product-price"><?php 
+																	$num = $row['gia'];
+																	$dinh_dang = number_format($num,0);
+																	echo $dinh_dang."đ"; ?></span>
+																</div>
+
+
+
+
+															</div>		
+
+
+														</div>
+													</div>
+													<div class="product-action clearfix hidden-xs">
+														<form action="them_vao_gio_hang.php?ma_san_pham=<?php echo $row['ma_san_pham'] ?>" method="post" class="variants form-nut-grid" data-id="product-actions-9722892" enctype="multipart/form-data">
+															<div>
+
+																<input class="hidden" type="hidden" name="variantId" value="15528471">
+																<button class="btn btn-cart btn btn-circle left-to">
+																	Thêm Vào Giỏ
+																</button>
+
+
+
+
+
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>	
+								</div>
+
+							</div>
+						</div>
+						<?php
+					}
+
+					?>		
+
+
+
+
+
+
+
+
+
+
+
+
+
+					<div class="text-center">
+
+					</div>
+				</section>		
+
+
+			</div>
+		</section>
+
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/bpr-products-module.css?1524126221691" rel="stylesheet" type="text/css">
+<div class="bizweb-product-reviews-module"></div> 
+
+
+
+
+
+<!-- _____________CHÂN TRANG____________ -->
+<footer class="footer">
+	<div class="site-footer">
+		<div class="top-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+						<div class="widget-ft">
+							<h4 class="title-menu">
+								<a role="button" class="collapsed" data-toggle="collapse" aria-expanded="false" data-target="#collapseListMenu01" aria-controls="collapseListMenu01">
+									Hệ thống cửa hàng <i class="fa fa-plus" aria-hidden="true"></i>
+								</a>
 							</h4>
-							<div class="time_work">
-								<ul class="list-menu list-menu-time">
-									<li class="li_menu li_menu_xxx">
-										<a class="rc yeloww" href="tel:(04)66742332">0981.744.199</a>
-										
-										<span class="hour_">( Miễn phí cuộc gọi )</span>
-										
-									</li>
+							<div class="collapse" id="collapseListMenu01">
+								<div class="list-menu">
+									<div class="widget-ft wg-logo">
 
-								</ul>
+
+
+
+
+
+
+
+										<div class="item">
+											<h4 class="title-menu4 icon_none_first">
+												<a>Digiworld Đội Cấn</a>
+											</h4>
+											<ul class="contact contact_x">
+												<li>
+													<span class="txt_content_child">
+														<span>Địa chỉ:</span>
+														Tầng 8 Ladeco, 266 Đội Cấn, Hà Nội
+													</span>
+												</li>
+
+												<li class="sdt">
+													<span> Hotline:</span>
+													<a href="tel:(04)66742332">(04)66742332</a>
+												</li>
+
+											</ul>
+										</div>
+
+
+
+
+
+
+
+
+										<div class="item">
+											<h4 class="title-menu4 icon_none_first">
+												<a>Digiwolrd Thái Hà</a>
+											</h4>
+											<ul class="contact contact_x">
+												<li>
+													<span class="txt_content_child">
+														<span>Địa chỉ:</span>
+														365 Thái Hà, Đống Đa, Hà Nội, Hà Nội
+													</span>
+												</li>
+
+												<li class="sdt">
+													<span> Hotline:</span>
+													<a href="tel:0968688989">0968688989</a>
+												</li>
+
+											</ul>
+										</div>
+
+
+
+
+
+
+
+
+										<div class="item">
+											<h4 class="title-menu4 icon_none_first">
+												<a>Digiworld Nguyễn Trãi</a>
+											</h4>
+											<ul class="contact contact_x">
+												<li>
+													<span class="txt_content_child">
+														<span>Địa chỉ:</span>
+														58 Nguyễn Trãi, Thanh Xuân, Hà Nội, Hà Nội
+													</span>
+												</li>
+
+												<li class="sdt">
+													<span> Hotline:</span>
+													<a href="tel:01659685999">01659685999</a>
+												</li>
+
+											</ul>
+										</div>
+
+
+
+
+
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="border-bottom-1px"></div>
-				</div>
-			</div>
-			<div class="bg-footer-bottom copyright clearfix">
-				<div class="container">
-					<div class="inner clearfix">
-						<div class="row tablet">
-							<div id="copyright" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 a-center fot_copyright">
-								<span class="wsp"><span class="mobile">© Bản quyền thuộc về <b>CLEAR TEAM NHÓM 3</b><span class="hidden-xs"> | </span></span><span class="opacity1" style="opacity: 0.7;">Cung cấp bởi</span> <a href="https://www.sapo.vn/?utm_campaign=cpn:site_khach_hang-plm:footer&amp;utm_source=site_khach_hang&amp;utm_medium=referral&amp;utm_content=fm:text_link-km:-sz:&amp;utm_term=&amp;campaign=site_khach_hang" rel="nofollow" title="Sapo" target="_blank">Thắng-Thành</a></span>
-								
-							</div>
 
-						</div>
-					</div>
-					
-					<a href="#" id="back-to-top" class="backtop" title="Lên đầu trang"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
-					
-					
-				</div>
+					<div class="col-xs-12 col-sm-6 col-md-25 col-lg-25">
+						<div class="widget-ft">
+							<h4 class="title-menu">
+								<a role="button" class="collapsed" data-toggle="collapse" aria-expanded="false" data-target="#collapseListMenu03" aria-controls="collapseListMenu03">
+									Fage FaceBook <i class="fa fa-plus" aria-hidden="true"></i>
+								</a>
+							</h4>
+							<div class="collapse time_work" id="collapseListMenu03">
+								<div class="fb-page" data-href="https://www.facebook.com/Learn-I-T-933406046870372/?__tn__=kC-R&amp;eid=ARAWXPc_I1opzvTBF9i_BGkPDKl1Ii8u9YbbrYwFHvJpaz62aTwhEVELwm5h27xcVFfPpeTw34CXy1IV&amp;hc_ref=ART_K4seIoCfTjIzpi1cj7Y4BMws_bg2vo79LfHtyY7HGZtmXhIfWcIZNiLlP6CUn54&amp;__xts__[0]=68.ARCmCknXfN4mTLVPtk6kaY5EYGGSN8o0eSshnhTGAL4gjMt1d820Dfc0h8uBLFhgKfVlIGAF1YAIESWfb9ybVXoU3yfpjFoNkO8RBQL_DbYXTNwoGE246kEYb0aBTqqiJ3O_DDKOuUz7QX3Mwo7ZuU2xRTxqT6AxjEBqMdLesN8M0LJ77GhCw3DWmGKd8kxuKrVEl9c2DgKQliN5QNegJwhbljPN36d3kNeNJFn4_nxCtgzWmzhq5cOivD93uYAUx609muP7vueXUUmEywFXGn8PeWOTrFT59MYHrCrGfJMoZIg2lZ23ZznhMOsWGc6nPRi1aCtRss7L7P8m4Fu2hCM" data-tabs="timeline" data-width="400px" data-height="150px" data-small-header="true" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Learn-I-T-933406046870372/?__tn__=kC-R&amp;eid=ARAWXPc_I1opzvTBF9i_BGkPDKl1Ii8u9YbbrYwFHvJpaz62aTwhEVELwm5h27xcVFfPpeTw34CXy1IV&amp;hc_ref=ART_K4seIoCfTjIzpi1cj7Y4BMws_bg2vo79LfHtyY7HGZtmXhIfWcIZNiLlP6CUn54&amp;__xts__[0]=68.ARCmCknXfN4mTLVPtk6kaY5EYGGSN8o0eSshnhTGAL4gjMt1d820Dfc0h8uBLFhgKfVlIGAF1YAIESWfb9ybVXoU3yfpjFoNkO8RBQL_DbYXTNwoGE246kEYb0aBTqqiJ3O_DDKOuUz7QX3Mwo7ZuU2xRTxqT6AxjEBqMdLesN8M0LJ77GhCw3DWmGKd8kxuKrVEl9c2DgKQliN5QNegJwhbljPN36d3kNeNJFn4_nxCtgzWmzhq5cOivD93uYAUx609muP7vueXUUmEywFXGn8PeWOTrFT59MYHrCrGfJMoZIg2lZ23ZznhMOsWGc6nPRi1aCtRss7L7P8m4Fu2hCM" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Learn-I-T-933406046870372/?__tn__=kC-R&amp;eid=ARAWXPc_I1opzvTBF9i_BGkPDKl1Ii8u9YbbrYwFHvJpaz62aTwhEVELwm5h27xcVFfPpeTw34CXy1IV&amp;hc_ref=ART_K4seIoCfTjIzpi1cj7Y4BMws_bg2vo79LfHtyY7HGZtmXhIfWcIZNiLlP6CUn54&amp;__xts__[0]=68.ARCmCknXfN4mTLVPtk6kaY5EYGGSN8o0eSshnhTGAL4gjMt1d820Dfc0h8uBLFhgKfVlIGAF1YAIESWfb9ybVXoU3yfpjFoNkO8RBQL_DbYXTNwoGE246kEYb0aBTqqiJ3O_DDKOuUz7QX3Mwo7ZuU2xRTxqT6AxjEBqMdLesN8M0LJ77GhCw3DWmGKd8kxuKrVEl9c2DgKQliN5QNegJwhbljPN36d3kNeNJFn4_nxCtgzWmzhq5cOivD93uYAUx609muP7vueXUUmEywFXGn8PeWOTrFT59MYHrCrGfJMoZIg2lZ23ZznhMOsWGc6nPRi1aCtRss7L7P8m4Fu2hCM">Learn I T</a></blockquote></div><br>
+								<script>
+  // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+  	console.log('statusChangeCallback');
+  	console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+  } else {
+      // The person is not logged into your app or we are unable to tell.
+      document.getElementById('status').innerHTML = 'Please log ' +
+      'into this app.';
+  }
+}
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+  	FB.getLoginStatus(function(response) {
+  		statusChangeCallback(response);
+  	});
+  }
+
+  window.fbAsyncInit = function() {
+  	FB.init({
+  		appId      : '{your-app-id}',
+      cookie     : true,  // enable cookies to allow the server to access 
+                          // the session
+      xfbml      : true,  // parse social plugins on this page
+      version    : 'v2.8' // use graph api version 2.8
+  });
+
+    // Now that we've initialized the JavaScript SDK, we call 
+    // FB.getLoginStatus().  This function gets the state of the
+    // person visiting this page and can return one of three states to
+    // the callback you provide.  They can be:
+    //
+    // 1. Logged into your app ('connected')
+    // 2. Logged into Facebook, but not your app ('not_authorized')
+    // 3. Not logged into Facebook and can't tell if they are logged into
+    //    your app or not.
+    //
+    // These three cases are handled in the callback function.
+
+    FB.getLoginStatus(function(response) {
+    	statusChangeCallback(response);
+    });
+
+};
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+  	var js, fjs = d.getElementsByTagName(s)[0];
+  	if (d.getElementById(id)) return;
+  	js = d.createElement(s); js.id = id;
+  	js.src = "https://connect.facebook.net/en_US/sdk.js";
+  	fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+  	console.log('Welcome!  Fetching your information.... ');
+  	FB.api('/me', function(response) {
+  		console.log('Successful login for: ' + response.name);
+  		document.getElementById('status').innerHTML =
+  		'Thanks for logging in, ' + response.name + '!';
+  	});
+  }
+</script>
+
+<!-- ____________END___________ -->
+</div>
+</div>
+</div>
+
+</div>
+<div class="border-bottom-1px"></div>
+</div>
+</div>
+<div class="mid-footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-5">
+				<div class="widget-ft wg-logo">
+					<h4 class="title-menu2 icon_none_first">
+						<a>Công ty cổ phần đầu tư thương mại thế giới số Digiworld</a>
+					</h4>
+					<ul class="contact">
+						<li>
+							<span class="txt_content_child">
+								<span> Địa chỉ:</span>
+
+								Tầng 8 Ladeco, 266 Đội Cấn, Hà Nội
+
+							</span>
+						</li>
+						<li class="sdt">
+							<span> Hotline:</span>
+
+							<a href="tel:(04)66742332">(04)66742332</a>
+
+							<span class="email_style"><span> Email:</span>
+
+							<a href="mailto:support@bizweb.vn"> support@bizweb.vn</a>
+
+						</span>
+					</li>
+				</ul>
 			</div>
 		</div>
-	</footer>
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 pay_footer">
+			<h4 class="title-menu2 icon_none_first">
+				<a>Chấp nhận thanh toán</a>
+			</h4>
+			<ul class="follow_option">
 
 
+				<li>
+					<a href="#"><img src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/pay_1.png?1524126221691" alt="Digiworld"></a>
+				</li>
 
-	<!-- Bizweb javascript -->
-	<script src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/option-selectors.js?1524126221691" type="text/javascript"></script>
-	<script src="https://bizweb.dktcdn.net/assets/themes_support/api.jquery.js?4" type="text/javascript"></script> 
-	<!-- Plugin JS -->
-	<script src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/owl.carousel.min.js?1524126221691" type="text/javascript"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<!-- Add to cart -->	
-	<div class="ajax-load"> 
-		<span class="loading-icon">
-			
-		</span>
+
+				<li>
+					<a href="#"><img src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/pay_2.png?1524126221691" alt="Digiworld"></a>
+				</li>
+
+
+				<li>
+					<a href="#"><img src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/pay_3.png?1524126221691" alt="Digiworld"></a>
+				</li>
+
+
+				<li>
+					<a href="#"><img src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/pay_4.png?1524126221691" alt="Digiworld"></a>
+				</li>
+
+
+				<li>
+					<a href="#"><img src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/pay_5.png?1524126221691" alt="Digiworld"></a>
+				</li>
+
+			</ul>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 social_footer">
+			<h4 class="title-menu2 icon_none_first icon_title_last">
+				<a>Khiếu nại &amp; Chăm sóc khách hàng</a>
+			</h4>
+			<div class="time_work">
+				<ul class="list-menu list-menu-time">
+					<li class="li_menu li_menu_xxx">
+						<a class="rc yeloww" href="tel:(04)66742332">0981.744.199</a>
+
+						<span class="hour_">( Miễn phí cuộc gọi )</span>
+
+					</li>
+
+				</ul>
+			</div>
+		</div>
 	</div>
+	<div class="border-bottom-1px"></div>
+</div>
+</div>
+<div class="bg-footer-bottom copyright clearfix">
+	<div class="container">
+		<div class="inner clearfix">
+			<div class="row tablet">
+				<div id="copyright" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 a-center fot_copyright">
+					<span class="wsp"><span class="mobile">© Bản quyền thuộc về <b>CLEAR TEAM NHÓM 3</b><span class="hidden-xs"> | </span></span><span class="opacity1" style="opacity: 0.7;">Cung cấp bởi</span> <a href="https://www.sapo.vn/?utm_campaign=cpn:site_khach_hang-plm:footer&amp;utm_source=site_khach_hang&amp;utm_medium=referral&amp;utm_content=fm:text_link-km:-sz:&amp;utm_term=&amp;campaign=site_khach_hang" rel="nofollow" title="Sapo" target="_blank">Thắng-Thành</a></span>
 
-	<div class="loading awe-popup">
-		<div class="overlay"></div>
-		<div class="loader" title="2">
-			
+				</div>
+
+			</div>
 		</div>
 
+		<a href="#" id="back-to-top" class="backtop" title="Lên đầu trang"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+
+
 	</div>
+</div>
+</div>
+</footer>
+
+
+
+<!-- Bizweb javascript -->
+<script src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/option-selectors.js?1524126221691" type="text/javascript"></script>
+<script src="https://bizweb.dktcdn.net/assets/themes_support/api.jquery.js?4" type="text/javascript"></script> 
+<!-- Plugin JS -->
+<script src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/owl.carousel.min.js?1524126221691" type="text/javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Add to cart -->	
+<div class="ajax-load"> 
+	<span class="loading-icon">
+
+	</span>
+</div>
+
+<div class="loading awe-popup">
+	<div class="overlay"></div>
+	<div class="loader" title="2">
+
+	</div>
+
+</div>
 
 
 </div>

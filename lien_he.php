@@ -199,18 +199,48 @@
 
 
 										<a href="./index.php" class="logo-wrapper ">					
-											<img src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/logo.png?1524126221691" alt="logo ">					
+											<img src="./img/logo.png" alt="logo ">					
 										</a>
 
 									</div>
 								</div>
+								<?php 
+									include 'connect_database.php';
+									$tim_kiem = "";
+									if(isset($_GET['tim_kiem'])){
+										$tim_kiem = strip_tags(addslashes($_GET['tim_kiem']));
+									}
+									$page = 1;
+									if(isset($_GET['page'])){
+										$page = $_GET['page'];
+									}
+
+									$limit = 1;
+
+
+									$offset = ($page-1)*$limit;
+
+									$query_show = "SELECT * from san_pham
+									join nha_san_xuat
+									on san_pham.ma_nha_san_xuat = nha_san_xuat.ma_nha_san_xuat
+									where ten_san_pham  like '%$tim_kiem%'
+									limit $limit offset $offset";
+									$result_show = mysqli_query($connect,$query_show);
+
+									$query_count = "SELECT count(*) from san_pham
+									where ten_san_pham like '%$tim_kiem%'";
+									$result_count = mysqli_query($connect,$query_count);
+									$row_count    = mysqli_fetch_array($result_count);
+									$count        = $row_count['count(*)'];
+
+									?>
 								<div class="col-lg-6 col-md-6">
 									<div class="header-left">
 										<div class="header_search hidden-xs hidden-sm">
-											<form action="/search" method="get" class="input-group search-bar" role="search">
+											<form class="input-group search-bar" role="search">
 												<input type="hidden" name="type" value="product">
 
-												<input type="search" name="query" value="" placeholder="Bạn đang tìm sản phẩm gì..." class="input-group-field">
+												<input type="search" name="tim_kiem" value="<?php echo $tim_kiem ?>" placeholder="Bạn đang tìm sản phẩm gì..." class="input-group-field">
 												<span class="input-group-btn">
 													<button type="submit" class="btn icon-fallback-text">
 														Tìm kiếm      
@@ -218,18 +248,7 @@
 												</span>
 											</form>
 										</div>
-										<div class="header_search hidden-lg hidden-md">
-											<form action="/search" method="get" class="input-group search-bar" role="search">
-												<input type="hidden" name="type" value="product">
-
-												<input type="search" name="query" value="" placeholder="Tìm kiếm..." class="input-group-field">
-												<span class="input-group-btn">
-													<button type="submit" class="btn icon-fallback-text">
-														Tìm kiếm      
-													</button>
-												</span>
-											</form>
-										</div>
+										
 
 									</div>
 								</div>
@@ -241,13 +260,12 @@
 										<div class="top-cart-contain f-right hidden-xs hidden-sm visible-md visible-lg">
 											<div class="mini-cart text-xs-center">
 												<div class="heading-cart">
-													<a class="bg_cart" href="./giohang.php" title="Giỏ hàng">
+													<a class="bg_cart" href="./xem_gio_hang.php" title="Giỏ hàng">
 														<i class="ion-android-cart"></i>
 														<!-- <span class="count_item count_item_pr"></span> -->
 														<span class="text-giohang hidden-xs">Giỏ hàng</span>
 													</a>
 												</div>	
-												<
 											</div>
 										</div>
 										<div class="top-cart-contain f-right hidden-lg hidden-md visible-xs visible-sm">
@@ -310,89 +328,18 @@
 
 
 												<li class="nav-item active ">				
-													<a class="a-img" href="/"><span>Trang chủ</span></a>
+													<a class="a-img" href="./index.php"><span>Trang chủ</span></a>
 												</li>
 
 
 
 
-												<li class="nav-item ">				
-													<a class="a-img" href="/gioi-thieu"><span>Giới thiệu</span></a>
-												</li>
+												
 
 
 
-
-
-									<!-- <li class="nav-item ">
-										<a class="a-img" href="/collections/all"><span>Sản phẩm</span><i class="fa fa-caret-down"></i></a>
-										<ul class="item_small">
-											
-											<li>
-												<a href="/pin-cap-bo-sac" title="">Pin, Cáp & Bộ sạc <i class="fa fa-angle-right"></i></a>
-												
-												<ul>
-													
-													<li>
-														<a href="/pin-sac-du-phong" title="">Pin sạc sự phòng</a>
-													</li>
-													
-													<li>
-														<a href="/pin-cap-bo-sac" title="">Dây cáp sạc</a>
-													</li>
-													
-													<li>
-														<a href="/pin-cap-bo-sac" title="">Sạc điện thoại</a>
-													</li>
-													
-													<li>
-														<a href="/vo-bao-op-lung" title="">Ốp lưng điện thoại</a>
-													</li>
-													
-												</ul>
-												
-											</li>
-											
-											<li>
-												<a href="/vo-bao-op-lung" title="">Vỏ, bao & Ốp lưng </a>
-												
-											</li>
-											
-											<li>
-												<a href="/pin-sac-du-phong" title="">Pin sạc dự phòng </a>
-												
-											</li>
-											
-											<li>
-												<a href="/gia-do-kep" title="">Giá đỡ & Kẹp </a>
-												
-											</li>
-											
-											<li>
-												<a href="/loa-nghe-nhac" title="">Phụ kiện nghe nhạc </a>
-												
-											</li>
-											
-											<li>
-												<a href="/gay-chup-hinh" title="">Gậy chụp hình </a>
-												
-											</li>
-											
-											<li>
-												<a href="/mieng-dan-man-hinh" title="">Miếng dán màn hình </a>
-												
-											</li>
-											
-										</ul>
-									</li> -->
 
 									
-									
-									
-									
-									<li class="nav-item ">				
-										<a class="a-img" href="/tin-tuc"><span>Khuyến mãi</span></a>
-									</li>
 									
 									
 									

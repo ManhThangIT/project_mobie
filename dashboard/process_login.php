@@ -1,6 +1,6 @@
 <?php
-$email    = $_POST['email'];
-$mat_khau = $_POST['mat_khau'];
+$email    = addslashes($_POST['email']);
+$mat_khau = addslashes($_POST['mat_khau']);
 $connect  = mysqli_connect('localhost','root','','project_dt');
 $query    = "select * from admin where email='$email' and mat_khau = '$mat_khau'";
 mysqli_set_charset($connect,'utf8');

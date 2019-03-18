@@ -1,5 +1,6 @@
 <?php session_start();?>
 <?php include 'kt.php'?>
+<?php if(isset($_SESSION['gio_hang'])){?>
 <html class=""><head><style type="text/css">.gm-style .gm-style-mtc label,.gm-style .gm-style-mtc div{font-weight:400}
 </style><style type="text/css">.gm-control-active>img{box-sizing:content-box;display:none;left:50%;pointer-events:none;position:absolute;top:50%;transform:translate(-50%,-50%)}.gm-control-active>img:nth-child(1){display:block}.gm-control-active:hover>img:nth-child(1),.gm-control-active:active>img:nth-child(1){display:none}.gm-control-active:hover>img:nth-child(2),.gm-control-active:active>img:nth-child(3){display:block}
 </style><link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans"><style type="text/css">.gm-ui-hover-effect{opacity:.6}.gm-ui-hover-effect:hover{opacity:1}
@@ -136,7 +137,7 @@
                                                         $tien_tung_san_pham = $tung_san_pham['gia']*$tung_san_pham['so_luong'];
                                                         ?>
                                                         <strong class="product-price pull-right">
-                                                         <?php echo $tien_tung_san_pham."₫" ?>
+                                                         <?php echo number_format($tien_tung_san_pham,0)."₫" ?>
                                                      </strong>
                                                  </li>
                                                  <?php 
@@ -173,7 +174,7 @@
                                         Tổng cộng
                                     </span>
                                     <span class="total-line-price pull-right">
-                                        <?php echo $tong."₫"; ?>
+                                        <?php echo number_format($tong,0)."₫"; ?>
                                     </span>
                                 </div>
                             </div>
@@ -338,3 +339,4 @@
 
 
 </body></html>
+ <?php } else {echo "<script> alert('Bạn không có sản phẩm nào trong giỏ hàng !');window.location='xem_gio_hang.php'; </script>";}?>

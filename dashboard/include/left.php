@@ -6,10 +6,10 @@
         Tip 3: you can change the color of the sidebar with data-background-color="white | black"
     -->
     <div class="logo">
-        <a href="#" class="simple-text logo-mini">
+        <a href="./dashboard.php" class="simple-text logo-mini">
             TT
         </a>
-        <a href="#" class="simple-text logo-normal">
+        <a href="./dashboard.php" class="simple-text logo-normal">
             SMARTPHONE
         </a>
     </div>

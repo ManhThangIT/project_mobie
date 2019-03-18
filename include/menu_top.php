@@ -41,9 +41,9 @@
 								
 								
 								
-								<li class="nav-item ">				
+								<!-- <li class="nav-item ">				
 									<a class="a-img" href="/gioi-thieu"><span>Giới thiệu</span></a>
-								</li>
+								</li> -->
 								
 								
 								
@@ -115,9 +115,9 @@
 									
 									
 									
-									<li class="nav-item ">				
+									<!-- <li class="nav-item ">				
 										<a class="a-img" href="/tin-tuc"><span>Khuyến mãi</span></a>
-									</li>
+									</li> -->
 									
 									
 									

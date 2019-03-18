@@ -6,7 +6,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png" />
     <link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Danh Sách Hóa Đơn</title>
+    <title>Danh Sách Admin</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <!-- Bootstrap core CSS     -->
@@ -45,10 +45,10 @@
         Tip 3: you can change the color of the sidebar with data-background-color="white | black"
     -->
     <div class="logo">
-        <a href="" class="simple-text logo-mini">
+        <a href="../dashboard.php" class="simple-text logo-mini">
             TT
         </a>
-        <a href="" class="simple-text logo-normal">
+        <a href="../dashboard.php" class="simple-text logo-normal">
            SMARTPHONE
        </a>
    </div>
@@ -89,231 +89,7 @@
                         </div>
                     </div>
                 </div>
-                <ul class="nav">
-                    <li>
-                        <a href="../dashboard.php">
-                            <i class="material-icons">dashboard</i>
-                            <p> Dashboard </p>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a data-toggle="collapse" href="#pagesExamples" aria-expanded="true">
-                            <!-- <i class="material-icons">image</i> -->
-                            <p> QUẢN LÝ HÓA ĐƠN
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse in" id="pagesExamples">
-                            <ul class="nav">
-                                <li>
-                                    <a href="./xem_san_pham.php">
-                                        <span class="sidebar-mini"> DS </span>
-                                        <span class="sidebar-normal"> Danh Sách Sản Phẩm </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./add_san_pham.php">
-                                        <span class="sidebar-mini"> T </span>
-                                        <span class="sidebar-normal"> Thêm Sản Phẩm </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="sidebar-mini"> CT </span>
-                                        <span class="sidebar-normal"> Chi Tiết Sản Phẩm </span>
-                                    </a>
-                                </li>
-                                <!-- <li class="active">
-                                    <a href="../pages/timeline.html">
-                                        <span class="sidebar-mini"> T </span>
-                                        <span class="sidebar-normal"> Timeline </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../pages/login.html">
-                                        <span class="sidebar-mini"> LP </span>
-                                        <span class="sidebar-normal"> Login Page </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../pages/register.html">
-                                        <span class="sidebar-mini"> RP </span>
-                                        <span class="sidebar-normal"> Register Page </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../pages/lock.html">
-                                        <span class="sidebar-mini"> LSP </span>
-                                        <span class="sidebar-normal"> Lock Screen Page </span>
-                                    </a>
-                                </li> -->
-                                <!-- <li>
-                                    <a href="../pages/user.html">
-                                        <span class="sidebar-mini"> UP </span>
-                                        <span class="sidebar-normal"> User Profile </span>
-                                    </a>
-                                </li> -->
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#componentsExamples">
-                           <!--  <i class="material-icons">apps</i> -->
-                           <p> QUẢN LÝ DANH MỤC
-                            <b class="caret"></b>
-                        </p>
-                    </a>
-                    <div class="collapse" id="componentsExamples">
-                        <ul class="nav">
-                            <li>
-                                <a href="http://localhost:8090/khachhang/dashboard/danh_muc/xem_danh_muc.php">
-                                    <span class="sidebar-mini"> DS </span>
-                                    <span class="sidebar-normal"> Danh sách danh mục </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://localhost:8090/khachhang/dashboard/danh_muc/add_danh_muc.php">
-                                    <span class="sidebar-mini"> T </span>
-                                    <span class="sidebar-normal"> Thêm danh mục </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="./components/panels.html">
-                                    <span class="sidebar-mini"> CT </span>
-                                    <span class="sidebar-normal"> Chi tiết danh mục </span>
-                                </a>
-                            </li>
-                                <!-- <li>
-                                    <a href="./components/sweet-alert.html">
-                                        <span class="sidebar-mini"> SA </span>
-                                        <span class="sidebar-normal"> Sweet Alert </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./components/notifications.html">
-                                        <span class="sidebar-mini"> N </span>
-                                        <span class="sidebar-normal"> Notifications </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./components/icons.html">
-                                        <span class="sidebar-mini"> I </span>
-                                        <span class="sidebar-normal"> Icons </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./components/typography.html">
-                                        <span class="sidebar-mini"> T </span>
-                                        <span class="sidebar-normal"> Typography </span>
-                                    </a>
-                                </li> -->
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#formsExamples">
-                            <!-- <i class="material-icons">content_paste</i> -->
-                            <p> QUẢN LÝ NHÀ SẢN XUẤT
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="formsExamples">
-                            <ul class="nav">
-                                <li>
-                                    <a href="http://localhost:8090/khachhang/dashboard/nha_san_xuat/xem_nha_san_xuat.php">
-                                        <span class="sidebar-mini"> DS </span>
-                                        <span class="sidebar-normal"> Danh sách nhà sản xuất </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://localhost:8090/khachhang/dashboard/nha_san_xuat/add_nha_san_xuat.php">
-                                        <span class="sidebar-mini"> T </span>
-                                        <span class="sidebar-normal"> Thêm nhà sản xuất </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./forms/validation.html">
-                                        <span class="sidebar-mini"> CT </span>
-                                        <span class="sidebar-normal"> Chi tiết nhà sản xuất</span>
-                                    </a>
-                                </li>
-                                <!-- <li>
-                                    <a href="./forms/wizard.html">
-                                        <span class="sidebar-mini"> W </span>
-                                        <span class="sidebar-normal"> Wizard </span>
-                                    </a>
-                                </li> -->
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#tablesExamples">
-                            <!-- <i class="material-icons">grid_on</i> -->
-                            <p> QUẢN LÝ TÀI KHOẢN
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-                        <div class="collapse" id="tablesExamples">
-                            <ul class="nav">
-                                <li>
-                                    <a href="./tables/regular.html">
-                                        <span class="sidebar-mini"> CN </span>
-                                        <span class="sidebar-normal"> Cá nhân </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./tables/extended.html">
-                                        <span class="sidebar-mini"> KH </span>
-                                        <span class="sidebar-normal"> Khách hàng </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./tables/datatables.net.html">
-                                        <span class="sidebar-mini"> AD </span>
-                                        <span class="sidebar-normal"> Admin </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#mapsExamples">
-                           <!--  <i class="material-icons">place</i> -->
-                           <p> QUẢN LÝ ĐƠN HÀNG
-                            <b class="caret"></b>
-                        </p>
-                    </a>
-                    <div class="collapse" id="mapsExamples">
-                        <ul class="nav">
-                            <li>
-                                <a href="./xem_hoa_don.php">
-                                    <span class="sidebar-mini"> DS </span>
-                                    <span class="sidebar-normal"> Danh sách đơn hàng </span>
-                                </a>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                </li>
-                   <!--  <li>
-                        <a href="../widgets.html">
-                            <i class="material-icons">widgets</i>
-                            <p> Widgets </p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../charts.html">
-                            <i class="material-icons">timeline</i>
-                            <p> Charts </p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../calendar.html">
-                            <i class="material-icons">date_range</i>
-                            <p> Calendar </p>
-                        </a>
-                    </li> -->
-                </ul>
+               <?php include 'menu.php';?>
             </div>
         </div>
         <div class="main-panel">
@@ -332,7 +108,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#"> Danh Sách Sản Phẩm </a>
+                        <a class="navbar-brand" href="#"> Danh Sách Admin </a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -377,23 +153,14 @@
                             </li>
                             <li class="separator hidden-lg hidden-md"></li>
                         </ul>
-                        <form class="navbar-form navbar-right" role="search">
-                            <div class="form-group form-search is-empty">
-                                <input type="text" class="form-control" placeholder=" Search ">
-                                <span class="material-input"></span>
-                            </div>
-                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                                <i class="material-icons">search</i>
-                                <div class="ripple-container"></div>
-                            </button>
-                        </form>
+
                     </div>
                 </div>
             </nav>
             <div class="content">
                 <div class="container-fluid">
                     <div class="header text-center">
-                        <h3 class="title">Danh Sách Hóa Đơn</h3>
+                        <h3 class="title">Danh Sách Admin</h3>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
@@ -413,23 +180,45 @@
                                     ?>
                                     <table border="1" width="100%">
                                         <tr>
+                                            <td class="tieude">Mã Admin</td>
                                             <td class="tieude">Tên Admin</td>
                                             <td class="tieude">Số điện thoại</td>
                                             <td class="tieude">Email</td>
                                             <td class="tieude">Địa chỉ</td>
                                             <td class="tieude">Giới Tính</td>
-                                            
+                                            <td class="tieude">Hành Động</td>
                                         </tr>
                                         <?php
                                         while($row = mysqli_fetch_array($result)){
                                             ?>
                                            <tr>
+                                            <td class="tieude"><?php echo $row['ma_admin'];?></td>
                                             <td class="tieude"><?php echo $row['ten_admin'];?></td>
                                             <td class="tieude"><?php echo $row['sdt'];?></td>
                                             <td class="tieude"><?php echo $row['email'];?></td>
                                             <td class="tieude"><?php echo $row['dia_chi'];?> </td>
-                                            <td class="tieude"><?php echo $row['gioi_tinh'];?></td>
-                                            
+                                            <td class="tieude">
+                                                <?php 
+                                                    if($row['gioi_tinh']==1){
+                                                        echo "Nam";
+                                                    }else{
+                                                        echo "Nữ";
+                                                    }
+                                                ?> 
+                                            </td>
+                                            <td>
+                                                <a href="them_admin.php">
+                                                    <button style="height: 30px; width: 150px;">Thêm Admin</button>
+                                                </a>
+
+                                                <a href="sua_thong_tin.php?ma_admin=<?php echo $row['ma_admin'];?>">
+                                                    <button style="height: 30px; width: 150px;">Sửa Admin</button>
+                                                </a>
+
+                                                <a href="">
+                                                    <button style="height: 30px; width: 150px;">Xóa Admin</button>
+                                                </a>
+                                            </td>
                                         </tr>    
                                                 
                                         

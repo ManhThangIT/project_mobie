@@ -13,6 +13,18 @@
                                         <span class="sidebar-normal"> Danh sách đơn hàng </span>
                                     </a>
                                 </li>
+                                 <li>
+                                    <a href="./hoa_don/hoa_don_duyet.php">
+                                        <span class="sidebar-mini"> D </span>
+                                        <span class="sidebar-normal"> Đơn Hàng Duyệt </span>
+                                    </a>
+                                </li>
+                                 <li>
+                                    <a href="./hoa_don/hoa_don_huy.php">
+                                        <span class="sidebar-mini"> H </span>
+                                        <span class="sidebar-normal"> Đơn Hàng Hủy </span>
+                                    </a>
+                                </li>
                                 
                                
                             </ul>

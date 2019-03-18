@@ -192,7 +192,7 @@
 
 										
 										<a href="./index.php" class="logo-wrapper ">					
-											<img src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/logo.png?1524126221691" alt="logo ">					
+											<img src="img/logo.png" alt="logo ">					
 										</a>
 										
 									</div>
@@ -211,18 +211,7 @@
 												</span>
 											</form>
 										</div>
-										<div class="header_search hidden-lg hidden-md">
-											<form action="/search" method="get" class="input-group search-bar" role="search">
-												<input type="hidden" name="type" value="product">
-
-												<input type="search" name="query" value="" placeholder="Tìm kiếm..." class="input-group-field">
-												<span class="input-group-btn">
-													<button type="submit" class="btn icon-fallback-text">
-														Tìm kiếm      
-													</button>
-												</span>
-											</form>
-										</div>
+										
 
 									</div>
 								</div>
@@ -309,22 +298,6 @@
 												
 												
 												
-												<li class="nav-item ">				
-													<a class="a-img" href="/gioi-thieu"><span>Giới thiệu</span></a>
-												</li>
-												
-												
-												
-												
-
-
-												
-												
-												
-												
-												<li class="nav-item ">				
-													<a class="a-img" href="/tin-tuc"><span>Khuyến mãi</span></a>
-												</li>
 												
 												
 												
@@ -397,88 +370,88 @@
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-hg-12">
 									<form accept-charset='UTF-8' action='./process_register.php' id='customer_register' method='post'>
-									<input name='FormType' type='hidden' value='customer_register' />
-									<input name='utf8' type='hidden' value='true' />
+										<input name='FormType' type='hidden' value='customer_register' />
+										<input name='utf8' type='hidden' value='true' />
 
-									<div class="fw clearfix form-signup row">
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<label>Họ và tên:</label>
-											<input type="text" class="form-control form-control-lg"  name="ten_khach_hang" id="ho_ten">
-										</fieldset>
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<p id="bao_loi_ho_ten" style="color: red;"></p>
-										</fieldset>
-
-
-
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<label>Số Điện Thoại:</label>
-											<input type="number" class="form-control form-control-lg"  name="sdt" id="sdt" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-										</fieldset> 
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<p id="bao_loi_sdt" style="color: red;"></p>
-										</fieldset>
+										<div class="fw clearfix form-signup row">
+											<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<label>Họ và tên:</label>
+												<input type="text" class="form-control form-control-lg"  name="ten_khach_hang" id="ho_ten">
+											</fieldset>
+											<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<p id="bao_loi_ho_ten" style="color: red;"></p>
+											</fieldset>
 
 
 
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<label>Email:</label>
-											<input type="email" class="form-control form-control-lg"  name="email" id="gmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
-										</fieldset>
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<p id="bao_loi_gmail" style="color: red;"></p>
-										</fieldset>
+											<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<label>Số Điện Thoại:</label>
+												<input type="number" class="form-control form-control-lg"  name="sdt" id="sdt">
+											</fieldset> 
+											<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<p id="bao_loi_sdt" style="color: red;"></p>
+											</fieldset>
 
 
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<label>Mật khẩu:</label>
-											<input type="password" class="form-control form-control-lg" name="mat_khau" id="mat_khau" minlength=6 maxlength=32 >
-										</fieldset>
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<p id="bao_loi_mat_khau" style="color: red;"></p>
-										</fieldset>
+
+											<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<label>Email:</label>
+												<input type="email" class="form-control form-control-lg"  name="email" id="gmail" >
+											</fieldset>
+											<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<p id="bao_loi_gmail" style="color: red;"></p>
+											</fieldset>
 
 
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<label>Nhập lại mật khẩu:</label>
-											<input type="password" class="form-control form-control-lg"   name="mat_khau" id="nl_mat_khau" minlength=6 maxlength=32  >
-										</fieldset>
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<p id="bao_loi_nl_mat_khau" style="color: red;"></p>
-										</fieldset>
+											<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<label>Mật khẩu:</label>
+												<input type="password" class="form-control form-control-lg" name="mat_khau" id="mat_khau" minlength=6 maxlength=32 >
+											</fieldset>
+											<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<p id="bao_loi_mat_khau" style="color: red;"></p>
+											</fieldset>
 
 
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<label>Ngày Sinh:</label>
-											<input type="date" class="form-control form-control-lg" name="ngay_sinh">
-										</fieldset>
-
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<label>Địa Chỉ:</label>
-											<input type="text" class="form-control form-control-lg"   name="dia_chi" id="dia_chi" minlength=6 maxlength=32 >
-										</fieldset>
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<p id="bao_loi_dia_chi" style="color: red;"></p>
-										</fieldset>
+											<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<label>Nhập lại mật khẩu:</label>
+												<input type="password" class="form-control form-control-lg"   name="mat_khau" id="nl_mat_khau" minlength=6 maxlength=32  >
+											</fieldset>
+											<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<p id="bao_loi_nl_mat_khau" style="color: red;"></p>
+											</fieldset>
 
 
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<label>Giới Tính:</label>
-											<select name="gioi_tinh">
-												<option value="1">Nam</option>
-												<option value="0">Nữ</option>
-											</select>
-										</fieldset>
+											<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<label>Ngày Sinh:</label>
+												<input type="date" class="form-control form-control-lg" name="ngay_sinh">
+											</fieldset>
 
-										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
-											<button class="btn-bg btn btn-lg btn-style btn-style-active btn_submit" onClick="return fsubmit();" name="xu_ly">Đăng ký tài khoản</button>
-										</fieldset>
+											<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<label>Địa Chỉ:</label>
+												<input type="text" class="form-control form-control-lg"   name="dia_chi" id="dia_chi" >
+											</fieldset>
+											<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<p id="bao_loi_dia_chi" style="color: red;"></p>
+											</fieldset>
 
-										<div class="bt_login a-left other_ways">
-											<span class="hai_tk">Bạn đã có tài khoản ?<a href="#" class="btn-link-style login_btn" title="Đăng nhập"> Đăng nhập tại đây</a></span>
+
+											<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<label>Giới Tính:</label>
+												<select name="gioi_tinh">
+													<option value="1">Nam</option>
+													<option value="0">Nữ</option>
+												</select>
+											</fieldset>
+
+											<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<button class="btn-bg btn btn-lg btn-style btn-style-active btn_submit" onClick="return fsubmit();" name="xu_ly">Đăng ký tài khoản</button>
+											</fieldset>
+
+											<div class="bt_login a-left other_ways">
+												<span class="hai_tk">Bạn đã có tài khoản ?<a href="#" class="btn-link-style login_btn" title="Đăng nhập"> Đăng nhập tại đây</a></span>
+											</div>
 										</div>
-									</div>
-								</form>
+									</form>
 
 
 
@@ -508,83 +481,83 @@
 			</div>
 
 			<script>
-			
-			function fsubmit() {
-				var ho_ten=document.getElementById('ho_ten').value;
-				var regex_ho_ten =/^[a-z A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]{5,50}$/;
-				var result_ho_ten=regex_ho_ten.test(ho_ten);
-				if (result_ho_ten== false) {
-					document.getElementById('bao_loi_ho_ten').innerHTML = 'Sai định dạng họ tên';
-					document.getElementById('ho_ten').focus();
-					return false;   
-				}
-				else{
-					document.getElementById('bao_loi_ho_ten').style.display='none';
-					document.getElementById('tick').style.display='block';
-				}
-				var gmail=document.getElementById('gmail').value;
-				var regex_gmail =/[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/igm;
-				var result_gmail=regex_gmail.test(gmail);
-				if (result_gmail== false) {
-					document.getElementById('bao_loi_gmail').innerHTML = 'Sai định dạng Email';
-					document.getElementById('gmail').focus();
-					return false;   
-				}
-				else{
-					document.getElementById('bao_loi_gmail').style.display='none';
-					document.getElementById('tick1').style.display='block';
-				}
-				var mat_khau=document.getElementById('mat_khau').value;
-				var regex_mat_khau =/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$/;
-				var result_mat_khau=regex_mat_khau.test(mat_khau);
-				if (result_mat_khau== false) {
-					document.getElementById('bao_loi_mat_khau').innerHTML = 'Mật khẩu ít nhất 8 ký tự';
-					document.getElementById('mat_khau').focus();
-					return false;   
-				}
-				else{
-					document.getElementById('bao_loi_mat_khau').style.display='none';
-					document.getElementById('tick2').style.display='block';
-				}
-				var nl_mat_khau=document.getElementById('nl_mat_khau').value;
-				var mat_khau=document.getElementById('mat_khau').value;
-				if (mat_khau=nl_mat_khau) {
-					document.getElementById('bao_loi_nl_mat_khau').style.display='none';
-					document.getElementById('tick3').style.display='block';
+				
+				function fsubmit() {
+					var ho_ten=document.getElementById('ho_ten').value;
+					var regex_ho_ten =/^[a-z A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]{5,50}$/;
+					var result_ho_ten=regex_ho_ten.test(ho_ten);
+					if (result_ho_ten== false) {
+						document.getElementById('bao_loi_ho_ten').innerHTML = 'Sai định dạng họ tên';
+						document.getElementById('ho_ten').focus();
+						return false;   
+					}
+					else{
+						document.getElementById('bao_loi_ho_ten').style.display='none';
+						document.getElementById('tick').style.display='block';
+					}
+					var gmail=document.getElementById('gmail').value;
+					var regex_gmail =/[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/igm;
+					var result_gmail=regex_gmail.test(gmail);
+					if (result_gmail== false) {
+						document.getElementById('bao_loi_gmail').innerHTML = 'Sai định dạng Email';
+						document.getElementById('gmail').focus();
+						return false;   
+					}
+					else{
+						document.getElementById('bao_loi_gmail').style.display='none';
+						document.getElementById('tick1').style.display='block';
+					}
+					var mat_khau=document.getElementById('mat_khau').value;
+					var regex_mat_khau =/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$/;
+					var result_mat_khau=regex_mat_khau.test(mat_khau);
+					if (result_mat_khau== false) {
+						document.getElementById('bao_loi_mat_khau').innerHTML = 'Mật khẩu ít nhất 8 ký tự';
+						document.getElementById('mat_khau').focus();
+						return false;   
+					}
+					else{
+						document.getElementById('bao_loi_mat_khau').style.display='none';
+						document.getElementById('tick2').style.display='block';
+					}
+					var nl_mat_khau=document.getElementById('nl_mat_khau').value;
+					var mat_khau=document.getElementById('mat_khau').value;
+					if (mat_khau=nl_mat_khau) {
+						document.getElementById('bao_loi_nl_mat_khau').style.display='none';
+						document.getElementById('tick3').style.display='block';
+
+					}
+					else {
+						document.getElementById('bao_loi_nl_mat_khau').innerHTML = 'Mật khẩu không trùng nhau';
+						document.getElementById('bao_loi_nl_mat_khau').focus();
+
+						return false;
+					}
+					var dia_chi=document.getElementById('dia_chi').value;
+					var regex_dia_chi=/^[a-z\,\ ]{5,25}[a-z\,\ ]{5,30}$/i;
+					var result_dia_chi=regex_dia_chi.test(dia_chi);
+					if (result_dia_chi== false) {
+						document.getElementById('bao_loi_dia_chi').innerHTML = 'Địa chỉ không hợp lệ';
+						document.getElementById('dia_chi').focus();
+						return false;   
+					}
+					else{
+						document.getElementById('bao_loi_dia_chi').style.display='none';
+						document.getElementById('tick4').style.display='block';
+					}
+					var sdt=document.getElementById('sdt').value;
+					var regex_sdt=/^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
+					var result_sdt=regex_sdt.test(sdt);
+					if (result_sdt== false) {
+						document.getElementById('bao_loi_sdt').innerHTML = 'Nhập sai số điện thoại';
+						document.getElementById('sdt').focus();
+						return false;   
+					}
+					else{
+						document.getElementById('bao_loi_sdt').style.display='none';
+						document.getElementById('tick5').style.display='block';
+					}
 
 				}
-				else {
-					document.getElementById('bao_loi_nl_mat_khau').innerHTML = 'Mật khẩu không trùng nhau';
-					document.getElementById('bao_loi_nl_mat_khau').focus();
-
-					return false;
-				}
-				var dia_chi=document.getElementById('dia_chi').value;
-				var regex_dia_chi=/^[a-z\,\ ]{5,25}[a-z\,\ ]{5,30}$/i;
-				var result_dia_chi=regex_dia_chi.test(dia_chi);
-				if (result_dia_chi== false) {
-					document.getElementById('bao_loi_dia_chi').innerHTML = 'Địa chỉ không hợp lệ';
-					document.getElementById('dia_chi').focus();
-					return false;   
-				}
-				else{
-					document.getElementById('bao_loi_dia_chi').style.display='none';
-					document.getElementById('tick4').style.display='block';
-				}
-				var sdt=document.getElementById('sdt').value;
-				var regex_sdt=/^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
-				var result_sdt=regex_sdt.test(sdt);
-				if (result_sdt== false) {
-					document.getElementById('bao_loi_sdt').innerHTML = 'Nhập sai số điện thoại';
-					document.getElementById('sdt').focus();
-					return false;   
-				}
-				else{
-					document.getElementById('bao_loi_sdt').style.display='none';
-					document.getElementById('tick5').style.display='block';
-				}
-
-			}
 
 
 
@@ -629,50 +602,24 @@
 				$('#login_register').removeClass('fix_height_login');
 			});
 		</script>
-		</header>
+	</header>
 
 
 
 
-		<section class="awe-section-1">	
-			<div class="home-slider owl-carousel owl-theme not-aweowl owl-loaded owl-drag">
-
-
-
-
-
-
-				
+	<section class="awe-section-1">	
+		<div class="home-slider owl-carousel owl-theme not-aweowl owl-loaded owl-drag">
 
 
 
 
 
 
-
-				
-
+			
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-				<div class="owl-stage-outer"></div><div class="owl-nav disabled"><div class="owl-prev disabled">prev</div><div class="owl-next">next</div></div><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div></div></div>
-			</section>
 
 
 
@@ -687,99 +634,125 @@
 
 
 
-			<div class="container">
-				<div class="row row-noGutter-2">					
-					
 
 
 
 
 
-					<div class="container margin-bottom-20">
-						<h1 class="title-head"><a href="#">Đăng ký tài khoản</a></h1>
-						<div class="row">
-							<div class="col-lg-12 ">
-								<div class="page-login">
-									<div id="login">
-										<span>Nếu chưa có tài khoản vui lòng đăng ký tại đây</span>
-										
-										<form accept-charset="UTF-8" action="./process_register.php" id="customer_register" method="post">
-											<input name="FormType" type="hidden" value="customer_register">
-											<input name="utf8" type="hidden" value="true">
 
-											<div class="form-signup">
-												
-											</div>
-											<div class="form-signup clearfix">
-												<div class="row">
-													<div class="col-md-6">
-														<fieldset class="form-group">
-															<label> Họ và Tên<span class="required">*</span></label>
-															<input type="text" class="form-control form-control-lg"  name="ten_khach_hang" id="ho_ten">
-														</fieldset>
-													</div>
-													<div class="col-md-6">
-														<fieldset class="form-group">
-															<label>Số Điện Thoại <span class="required">*</span></label>
-															<input type="number" class="form-control form-control-lg" value="" name="sdt" id="sdt" >
-														</fieldset>
-													</div>
+
+
+
+
+			<div class="owl-stage-outer"></div><div class="owl-nav disabled"><div class="owl-prev disabled">prev</div><div class="owl-next">next</div></div><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div></div></div>
+		</section>
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+		<div class="container">
+			<div class="row row-noGutter-2">					
+				
+
+
+
+
+
+				<div class="container margin-bottom-20">
+					<h1 class="title-head"><a href="#">Đăng ký tài khoản</a></h1>
+					<div class="row">
+						<div class="col-lg-12 ">
+							<div class="page-login">
+								<div id="login">
+									<span>Nếu chưa có tài khoản vui lòng đăng ký tại đây</span>
+									
+									<form action="./process_register.php" id="customer_register" method="post">
+										<input name="FormType" type="hidden" value="customer_register">
+										<input name="utf8" type="hidden" value="true">
+
+										<div class="form-signup">
+											
+										</div>
+										<div class="form-signup clearfix">
+											<div class="row">
+												<div class="col-md-6">
+													<fieldset class="form-group">
+														<label> Họ và Tên<span class="required">*</span></label>
+														<input type="text" class="form-control form-control-lg"  name="ten_khach_hang" id="ho_ten">
+													</fieldset>
 												</div>
-												<div class="row">
-													<div class="col-md-6">
-														<fieldset class="form-group">
-															<label>Email <span class="required">*</span></label>
-															<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" class="form-control form-control-lg" value="" name="email" id="email" >
-														</fieldset>
-													</div>
-													<div class="col-md-6">
-
-														<fieldset class="form-group">
-															<label>Mật khẩu <span class="required">*</span> </label>
-															<input type="password" class="form-control form-control-lg" value="" name="mat_khau" id="mat_khau" placeholder="" required="">
-														</fieldset>
-													</div>
-
-													<div class="col-md-6">
-
-														<fieldset class="form-group">
-															<label>Ngày Sinh <span class="required">*</span> </label>
-															<input type="date" class="form-control form-control-lg"  name="ngay_sinh" >
-														</fieldset>
-													</div>
-
-													<div class="col-md-6">
-
-														<fieldset class="form-group">
-															<label>Địa Chỉ <span class="required">*</span> </label>
-															<input type="text" class="form-control form-control-lg" value=""  name="dia_chi" id="dia_chi" >
-														</fieldset>
-													</div>
-
-													<div class="col-md-6">
-
-														<fieldset class="form-group">
-															<label>Giới Tính <span class="required">*</span> </label>
-															<select name="gioi_tinh">
-																<option value="1">Nam</option>
-																<option value="0">Nữ</option>
-															</select>
-														</fieldset>
-													</div>
-												</div>
-
-
-												<div class="col-xs-12 text-xs-left" style="margin-top:30px; padding: 0">
-													<button type="summit" value="Đăng ký" class="btn  btn-style btn-primary" name="xu_ly" onclick="return fsubmit()">Đăng ký</button>
-													<a href="form_dangnhap.php" class="btn-link-style btn-register" style="margin-left: 20px;text-decoration: underline; ">Đăng nhập</a>
+												<div class="col-md-6">
+													<fieldset class="form-group">
+														<label>Số Điện Thoại <span class="required">*</span></label>
+														<input type="number" class="form-control form-control-lg" value="" name="sdt" id="sdt" >
+													</fieldset>
 												</div>
 											</div>
-										</form>
-									</div>
+											<div class="row">
+												<div class="col-md-6">
+													<fieldset class="form-group">
+														<label>Email <span class="required">*</span></label>
+														<input type="email" class="form-control form-control-lg" value="" name="email" id="email" >
+													</fieldset>
+												</div>
+												<div class="col-md-6">
+
+													<fieldset class="form-group">
+														<label>Mật khẩu <span class="required">*</span> </label>
+														<input type="password" class="form-control form-control-lg" value="" name="mat_khau" id="mat_khau" placeholder="" required="">
+													</fieldset>
+												</div>
+
+												<div class="col-md-6">
+
+													<fieldset class="form-group">
+														<label>Ngày Sinh <span class="required">*</span> </label>
+														<input type="date" class="form-control form-control-lg"  name="ngay_sinh" >
+													</fieldset>
+												</div>
+
+												<div class="col-md-6">
+
+													<fieldset class="form-group">
+														<label>Địa Chỉ <span class="required">*</span> </label>
+														<input type="text" class="form-control form-control-lg" value=""  name="dia_chi" id="dia_chi" >
+													</fieldset>
+												</div>
+
+												<div class="col-md-6">
+
+													<fieldset class="form-group">
+														<label>Giới Tính <span class="required">*</span> </label>
+														<select name="gioi_tinh">
+															<option value="1">Nam</option>
+															<option value="0">Nữ</option>
+														</select>
+													</fieldset>
+												</div>
+											</div>
+
+
+											<div class="col-xs-12 text-xs-left" style="margin-top:30px; padding: 0">
+												<button type="summit" value="Đăng ký" class="btn  btn-style btn-primary" name="xu_ly" onclick="return fsubmit()">Đăng ký</button>
+												<a href="form_dangnhap.php" class="btn-link-style btn-register" style="margin-left: 20px;text-decoration: underline; ">Đăng nhập</a>
+											</div>
+										</div>
+									</form>
 								</div>
 							</div>
 						</div>
 					</div>
+				</div>
 
 
 
@@ -787,38 +760,38 @@
 
 
 
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					<div class="text-center">
-						
-					</div>
-				</section>		
 				
 				
-			</div>
-		</section>
-		
-	</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<div class="text-center">
+					
+				</div>
+			</section>		
+			
+			
+		</div>
+	</section>
+	
+</div>
 </div>
 
 
@@ -959,80 +932,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-xs-12 col-sm-6 col-md-25 col-lg-25">
-						<div class="widget-ft">
-							<h4 class="title-menu">
-								<a role="button" class="collapsed" data-toggle="collapse" aria-expanded="false" data-target="#collapseListMenu02" aria-controls="collapseListMenu02">
-									Giới thiệu <i class="fa fa-plus" aria-hidden="true"></i>
-								</a>
-							</h4>
-							<div class="collapse" id="collapseListMenu02">
-								<ul class="list-menu">
-									
-									<li class="li_menu"><a href="/">Trang chủ</a></li>
-									
-									<li class="li_menu"><a href="/gioi-thieu">Giới thiệu</a></li>
-									
-									<li class="li_menu"><a href="/collections/all">Sản phẩm</a></li>
-									
-									<li class="li_menu"><a href="/tin-tuc">Tin khuyến mãi</a></li>
-									
-									<li class="li_menu"><a href="/lien-he">Liên hệ</a></li>
-									
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-6 col-md-25 col-lg-25">
-						<div class="widget-ft">
-							<h4 class="title-menu">
-								<a role="button" class="collapsed" data-toggle="collapse" aria-expanded="false" data-target="#collapseListMenu03" aria-controls="collapseListMenu03">
-									Hỗ trợ khách hàng <i class="fa fa-plus" aria-hidden="true"></i>
-								</a>
-							</h4>
-							<div class="collapse time_work" id="collapseListMenu03">
-								<ul class="list-menu">
-									
-									<li class="li_menu"><a href="/">Trang chủ</a></li>
-									
-									<li class="li_menu"><a href="/gioi-thieu">Giới thiệu</a></li>
-									
-									<li class="li_menu"><a href="/collections/all">Sản phẩm</a></li>
-									
-									<li class="li_menu"><a href="/tin-tuc">Tin khuyến mãi</a></li>
-									
-									<li class="li_menu"><a href="/lien-he">Liên hệ</a></li>
-									
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-						<div class="widget-ft last-child">
-							<h4 class="title-menu title-db">
-								<a role="button" class="collapsed" data-toggle="collapse" aria-expanded="false" data-target="#collapseListMenu04" aria-controls="collapseListMenu04">
-									Chính sách <i class="fa fa-plus" aria-hidden="true"></i>
-								</a>
-							</h4>
-							<div class="collapse" id="collapseListMenu04">
-								
-								<ul class="list-menu">
-									
-									<li class="li_menu"><a href="/">Trang chủ</a></li>
-									
-									<li class="li_menu"><a href="/gioi-thieu">Giới thiệu</a></li>
-									
-									<li class="li_menu"><a href="/collections/all">Sản phẩm</a></li>
-									
-									<li class="li_menu"><a href="/tin-tuc">Tin khuyến mãi</a></li>
-									
-									<li class="li_menu"><a href="/lien-he">Liên hệ</a></li>
-									
-								</ul>
-								
-							</div>
-						</div>
-					</div>
+					
+					
+					
 				</div>
 				<div class="border-bottom-1px"></div>
 			</div>

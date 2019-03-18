@@ -15,6 +15,11 @@ $_SESSION['ma_khach_hang']=$rowa['ma_khach_hang'];
 if(!empty($_SESSION['gio_hang'])){
 
 	if(isset($_GET['dat_hang']) && !empty($_GET['nguoi_nhan']) && !empty($_GET['sdt_nguoi_nhan']) && !empty($_GET['dia_chi'])){
+		
+
+		
+		
+
 		//lấy thông tin người nhận
 		
 
@@ -42,7 +47,7 @@ if(!empty($_SESSION['gio_hang'])){
 
 		$tong_tien = 0;
 		foreach ($_SESSION['gio_hang'] as $ma_san_pham => $tung_san_pham) { 
-			
+
 			$tong_tien = $tong_tien + ($tung_san_pham['gia']*$tung_san_pham['so_luong']);
 		}
 
@@ -61,7 +66,7 @@ if(!empty($_SESSION['gio_hang'])){
 		'$nguoi_nhan',
 		'$dia_chi',
 		'$sdt_nguoi_nhan',
-		1,
+		'Chờ Duyệt',
 		'$tong_tien')";
 
 		mysqli_query($connect,$query);
@@ -83,13 +88,49 @@ if(!empty($_SESSION['gio_hang'])){
 			'$so_luong')";
 			mysqli_query($connect,$query);
 		}
+
+		// kiểm tra hàng tồn kho
+
+		foreach ($_SESSION['gio_hang'] as $ma_san_pham => $tung_san_pham) {
+
+			$query_sp = "SELECT 
+			sum(so_luong),so_luong_da_nhap,ten_san_pham 
+			from chitiet_hoadon
+			join hoa_don 
+			on chitiet_hoadon.ma_hoa_don = hoa_don.ma_hoa_don
+			join san_pham 
+			on san_pham.ma_san_pham = chitiet_hoadon.ma_san_pham
+			where san_pham.ma_san_pham = '$ma_san_pham'";
+			$result_sp = mysqli_query($connect,$query_sp);
+			$row_sp = mysqli_fetch_array($result_sp);
+			$so_luong_da_mua = $row_sp['sum(so_luong)'];
+
+			$so_luong_da_nhap = $row_sp['so_luong_da_nhap'];
+
+			$so_luong_dat_hang = $tung_san_pham['so_luong'];
+
+			$so_con_lai = $so_luong_da_nhap - $so_luong_da_mua;
+
+			if ($so_con_lai > $so_luong_dat_hang) {
+				$query_hd = "UPDATE san_pham SET ton_kho = '$so_con_lai' WHERE ma_san_pham = '$ma_san_pham'";
+				mysqli_query($connect,$query_hd);
+				// unset($_SESSION['gio_hang']);
+				echo "<script>window.location='thongtin_thanhtoan.php'; </script>";
+			} else {
+				echo "<script> alert('Sản phẩm của chúng tôi đã hết!') ;window.location='dat_hang.php'; </script>";
+				
+				
+			}
+		}
+
+
 		
-		header('location: thongtin_thanhtoan.php');
+		// header('location: thongtin_thanhtoan.php');
 	}
 	else{
-		echo "<scrip>alert('Dat Hang That Bai');</scrip>";
+		echo "<scrip>alert('Đặt hàng thất bại');</scrip>";
 	}
 }
 else{
-	echo "<scrip>alert('Dat Hang That Bai');</scrip>";
-	}
+	echo "<scrip>alert('Đặt hàng thất bại');</scrip>";
+}

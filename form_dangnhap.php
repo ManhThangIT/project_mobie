@@ -1,6 +1,7 @@
 <?php  session_start(); ?>
-
-
+<?php if(isset($_SESSION['ten_khach_hang'])){
+	echo "<script>window.location='index.php'; </script>";
+ } else { ?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -192,7 +193,7 @@
 
 
 										<a href="./index.php" class="logo-wrapper ">					
-											<img src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/logo.png?1524126221691" alt="logo ">					
+											<img src="img/logo.png" alt="logo ">					
 										</a>
 
 									</div>
@@ -211,18 +212,7 @@
 												</span>
 											</form>
 										</div>
-										<div class="header_search hidden-lg hidden-md">
-											<form action="/search" method="get" class="input-group search-bar" role="search">
-												<input type="hidden" name="type" value="product">
 
-												<input type="search" name="query" value="" placeholder="Tìm kiếm..." class="input-group-field">
-												<span class="input-group-btn">
-													<button type="submit" class="btn icon-fallback-text">
-														Tìm kiếm      
-													</button>
-												</span>
-											</form>
-										</div>
 
 									</div>
 								</div>
@@ -309,22 +299,6 @@
 
 
 
-												<li class="nav-item ">				
-													<a class="a-img" href="/gioi-thieu"><span>Giới thiệu</span></a>
-												</li>
-
-
-
-
-
-
-
-
-
-
-												<li class="nav-item ">				
-													<a class="a-img" href="/tin-tuc"><span>Khuyến mãi</span></a>
-												</li>
 
 
 
@@ -352,7 +326,7 @@
 							<p class="text_bot_modal">Điền đầy đủ thông tin tài khoản của bạn vào form dưới đây để đăng nhập</p>
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-hg-12">
-									<form accept-charset="UTF-8" action="./process_login.php" id="customer_login" method="post">
+									<form  action="./process_login.php" id="customer_login" method="post">
 										<input name="FormType" type="hidden" value="customer_login">
 										<input name="utf8" type="hidden" value="true">
 
@@ -360,10 +334,10 @@
 										<div class="fw clearfix form-signup row">
 											<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
 												<label>Email:</label>
-												<input type="email" class="form-control form-control-lg" value="" name="email" id="customer_email" >
+												<input type="email" class="form-control form-control-lg" value="" name="email" id="email" >
 
 												<label>Mật khẩu:</label>
-												<input type="password" class="form-control form-control-lg" value="" name="mat_khau" id="customer_password" >
+												<input type="password" class="form-control form-control-lg" value="" name="mat_khau" id="mat_khau" >
 												<select name="ghinho">
 													<option value="1">Nhớ tài khoản</option>
 												</select>
@@ -413,7 +387,7 @@
 
 										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
 											<label>Số Điện Thoại:</label>
-											<input type="number" class="form-control form-control-lg"  name="sdt" id="sdt" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+											<input type="number" class="form-control form-control-lg"  name="sdt" id="sdt"">
 										</fieldset> 
 										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
 											<p id="bao_loi_sdt" style="color: red;"></p>
@@ -423,7 +397,7 @@
 
 										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
 											<label>Email:</label>
-											<input type="email" class="form-control form-control-lg"  name="email" id="gmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+											<input type="email" class="form-control form-control-lg"  name="email" id="gmail">
 										</fieldset>
 										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
 											<p id="bao_loi_gmail" style="color: red;"></p>
@@ -432,7 +406,7 @@
 
 										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
 											<label>Mật khẩu:</label>
-											<input type="password" class="form-control form-control-lg" name="mat_khau" id="mat_khau" minlength=6 maxlength=32 >
+											<input type="password" class="form-control form-control-lg" name="mat_khau" id="mat_khau" >
 										</fieldset>
 										<fieldset class="form-group fr_gr_pd col-lg-12 col-md-12 col-sm-12 col-xs-12">
 											<p id="bao_loi_mat_khau" style="color: red;"></p>
@@ -704,7 +678,7 @@
 										<span>
 											Nếu bạn đã có tài khoản, đăng nhập tại đây.
 										</span>
-										<form accept-charset="UTF-8" action="./process_login.php" id="customer_login" method="post">
+										<form action="./process_login.php" id="customer_login" method="post">
 											<input name="FormType" type="hidden" value="customer_login">
 											<input name="utf8" type="hidden" value="true">
 											<div class="form-signup">
@@ -713,11 +687,11 @@
 											<div class="form-signup clearfix">
 												<fieldset class="form-group">
 													<label>Email <span class="required">*</span></label>
-													<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" class="form-control form-control-lg" value="" name="email" id="customer_email" placeholder="Email" required="">
+													<input type="email" id="email" class="form-control form-control-lg" value="" name="email"  placeholder="Email" >
 												</fieldset>
 												<fieldset class="form-group">
 													<label>Mật khẩu <span class="required">*</span></label>
-													<input type="password" class="form-control form-control-lg" value="" name="mat_khau" id="customer_password" placeholder="Mật khẩu" required="">
+													<input type="password" class="form-control form-control-lg" value="" name="mat_khau" id="mat_khau" placeholder="Mật khẩu" >
 												</fieldset>
 
 
@@ -749,7 +723,7 @@
 										<div class="form-signup clearfix">
 											<fieldset class="form-group">
 												<label>Email <span class="required">*</span></label>
-												<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" class="form-control form-control-lg" value="" name="Email" id="recover-email" placeholder="Email" required="">
+												<input type="email" id="email" class="form-control form-control-lg" value="" name="Email" id="recover-email" placeholder="Email" required="">
 											</fieldset>
 										</div>
 										<div class="action_bottom">
@@ -940,80 +914,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-xs-12 col-sm-6 col-md-25 col-lg-25">
-						<div class="widget-ft">
-							<h4 class="title-menu">
-								<a role="button" class="collapsed" data-toggle="collapse" aria-expanded="false" data-target="#collapseListMenu02" aria-controls="collapseListMenu02">
-									Giới thiệu <i class="fa fa-plus" aria-hidden="true"></i>
-								</a>
-							</h4>
-							<div class="collapse" id="collapseListMenu02">
-								<ul class="list-menu">
-									
-									<li class="li_menu"><a href="/">Trang chủ</a></li>
-									
-									<li class="li_menu"><a href="/gioi-thieu">Giới thiệu</a></li>
-									
-									<li class="li_menu"><a href="/collections/all">Sản phẩm</a></li>
-									
-									<li class="li_menu"><a href="/tin-tuc">Tin khuyến mãi</a></li>
-									
-									<li class="li_menu"><a href="/lien-he">Liên hệ</a></li>
-									
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-6 col-md-25 col-lg-25">
-						<div class="widget-ft">
-							<h4 class="title-menu">
-								<a role="button" class="collapsed" data-toggle="collapse" aria-expanded="false" data-target="#collapseListMenu03" aria-controls="collapseListMenu03">
-									Hỗ trợ khách hàng <i class="fa fa-plus" aria-hidden="true"></i>
-								</a>
-							</h4>
-							<div class="collapse time_work" id="collapseListMenu03">
-								<ul class="list-menu">
-									
-									<li class="li_menu"><a href="/">Trang chủ</a></li>
-									
-									<li class="li_menu"><a href="/gioi-thieu">Giới thiệu</a></li>
-									
-									<li class="li_menu"><a href="/collections/all">Sản phẩm</a></li>
-									
-									<li class="li_menu"><a href="/tin-tuc">Tin khuyến mãi</a></li>
-									
-									<li class="li_menu"><a href="/lien-he">Liên hệ</a></li>
-									
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-						<div class="widget-ft last-child">
-							<h4 class="title-menu title-db">
-								<a role="button" class="collapsed" data-toggle="collapse" aria-expanded="false" data-target="#collapseListMenu04" aria-controls="collapseListMenu04">
-									Chính sách <i class="fa fa-plus" aria-hidden="true"></i>
-								</a>
-							</h4>
-							<div class="collapse" id="collapseListMenu04">
-								
-								<ul class="list-menu">
+					
+					
 
-									<li class="li_menu"><a href="/">Trang chủ</a></li>
-
-									<li class="li_menu"><a href="/gioi-thieu">Giới thiệu</a></li>
-
-									<li class="li_menu"><a href="/collections/all">Sản phẩm</a></li>
-
-									<li class="li_menu"><a href="/tin-tuc">Tin khuyến mãi</a></li>
-
-									<li class="li_menu"><a href="/lien-he">Liên hệ</a></li>
-
-								</ul>
-
-							</div>
-						</div>
-					</div>
 				</div>
 				<div class="border-bottom-1px"></div>
 			</div>
@@ -1177,3 +1080,4 @@
 <div><div style="display:none"><img src="https://stats.bizweb.vn/Delivery/Logging?SiteId=289371&amp;Url=http://localhost:8090/khachhang/xem_tat_ca_san_pham.php?ma_danh_muc=1&amp;ReferenceUrl=http://localhost:8090/khachhang/"></div></div>
 </body>
 </html>
+<?php } ?>

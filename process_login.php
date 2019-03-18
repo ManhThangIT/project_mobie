@@ -1,7 +1,7 @@
 <?php
 	include('./connect_database.php');
-	$email=$_POST['email'];
-	$mat_khau=$_POST['mat_khau'];
+	$email=strip_tags(addslashes($_POST['email']));
+	$mat_khau=strip_tags(addslashes($_POST['mat_khau']));
 	// $mat_khau = md5($mat_khau);
 	session_start();
 	// Không nên đổ trực tiếp vào session tổng, nên đổ tất cả thông tin khách hàng vào $_SESSION['customer']

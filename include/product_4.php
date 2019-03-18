@@ -6,7 +6,7 @@
 		<div class="row row-noGutter-2">
 			<div class="heading">
 				<h2 class="title-head">
-					<a href="">SẢN PHẨM</a>
+					<a href="">SẢN PHẨM NỔI BẬT </a>
 				</h2>
 			</div>
 			<div class="border_wrap products-view-grid-bb">
@@ -16,7 +16,9 @@
 							
 							<?php 
 							include('./connect_database.php');
-							$query = "select * from san_pham";
+							$query = "select *,sum(so_luong) from chitiet_hoadon
+							join san_pham on chitiet_hoadon.ma_san_pham = san_pham.ma_san_pham
+							group by san_pham.ma_san_pham order by sum(so_luong) DESC limit 7";
 							$result = mysqli_query($connect,$query);
 							?>
 							<?php
@@ -95,65 +97,17 @@
 										</div>
 
 
-										<div class="product-box-h product-box-1">
-											<div class="row">
-												<div class="col-sm-5 col-xs-5 col-xs-left-f">
-													<div class="product-thumbnail">
-														<a class="image_link display_flex">
-															<img src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/product-1.png?1524126221691"  data-lazyload="https://bizweb.dktcdn.net/thumb/compact/100/289/371/products/08-dbdfc9aa-fe11-45bc-ace0-c2c8cb80b32f.jpg?v=1516612166043" alt="Ốp lưng iPhone 6/6S Memo Totem">
-														</a>
-
-
-
-													</div>
-												</div>
-												<div class="col-sm-7 col-xs-7 col-xs-right-f pad-col-15">
-													<div class="product-info a-left">
-
-														<h3 class="product-name"><a href="/op-lung-iphone-6-6s-memo-totem" title="Ốp lưng iPhone 6/6S Memo Totem">Ốp lưng iPhone 6/6S Memo Totem</a></h3>
-
-														<div class="product-hides">
-															<div class="bizweb-product-reviews-badge" data-id="9721688"></div>
-															<div class="product-hide">
-
-
-																<div class="price-box clearfix">
-																	<div class="special-price">
-																		<span class="price product-price">250.000₫</span>
-																	</div>											
-																</div>
-
-
-															</div>
-														</div>
-														<div class="product-action clearfix hidden-xs">
-															<form action="/cart/add" method="post" class="variants form-nut-grid" data-id="product-actions-9721688" enctype="multipart/form-data">
-																<div>
-
-																	<input type="hidden" name="variantId" value="15526574" />
-																	<button class="btn-buy btn-cart btn btn-circle left-to add_to_cart " title="Thêm vào giỏ hàng">
-																		Thêm Vào Giỏ
-																	</button>
-
-
-
-																</div>
-															</form>
-														</div>
-													</div>
-
-												</div>
-											</div>
-
-
-
-										</div>
+										
 									</div>
 								</div>
 								<?php
 							}
 							mysqli_close($connect);
 							?>
+						</div>
+					</div>
+				</div>
+			</div>
 
 
 

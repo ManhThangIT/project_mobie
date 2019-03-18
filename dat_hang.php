@@ -1,5 +1,6 @@
 <?php session_start();?>
 <?php include 'kt.php'?>
+<?php if(isset($_SESSION['gio_hang'])){?>
 <html class="anyflexbox boxshadow display-table"><head>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -29,7 +30,7 @@
 
     <body class="body--custom-background-color " style="">
         <!-- Subiz --> <script> 
-(function(s, u, b, i, z){ u[i]=u[i]||function(){ u[i].t=+new Date(); (u[i].q=u[i].q||[]).push(arguments); }; z=s.createElement('script'); var zz=s.getElementsByTagName('script')[0]; z.async=1; z.src=b; z.id='subiz-script'; zz.parentNode.insertBefore(z,zz); })(document, window, 'https://widgetv4.subiz.com/static/js/app.js', 'subiz'); subiz('setAccount', 'acqefbsgxffajenyvnfl'); </script> <!-- End Subiz -->
+        (function(s, u, b, i, z){ u[i]=u[i]||function(){ u[i].t=+new Date(); (u[i].q=u[i].q||[]).push(arguments); }; z=s.createElement('script'); var zz=s.getElementsByTagName('script')[0]; z.async=1; z.src=b; z.id='subiz-script'; zz.parentNode.insertBefore(z,zz); })(document, window, 'https://widgetv4.subiz.com/static/js/app.js', 'subiz'); subiz('setAccount', 'acqefbsgxffajenyvnfl'); </script> <!-- End Subiz -->
         <div class="banner" data-header="">
             <div class="wrap">
                 <div class="shop logo logo--left ">
@@ -84,13 +85,13 @@
                     </div>
                     <div class="sidebar__content">
                         <div class="order-summary order-summary--product-list order-summary--is-collapsed">
-                         
+                           
                             <div class="summary-body summary-section summary-product">
                                 <div class="summary-product-list">
 
-                                   <?php 
-                                   $tong = 0;
-                                   foreach ($_SESSION['gio_hang'] as $ma_san_pham => $tung_san_pham) { 
+                                 <?php 
+                                 $tong = 0;
+                                 foreach ($_SESSION['gio_hang'] as $ma_san_pham => $tung_san_pham) { 
                                     
                                     ?>
 
@@ -121,25 +122,25 @@
                                                     
                                                 </td>
                                                 <td class="product-price text-right">
-                                                 <?php echo $tien_tung_san_pham."₫" ?>
-                                             </td>
-                                         </tr>
-                                         
-                                     </tbody>
-                                 </table>
+                                                   <?php echo number_format($tien_tung_san_pham,0)."₫" ?>
+                                               </td>
+                                           </tr>
+                                           
+                                       </tbody>
+                                   </table>
 
-                                 <?php 
-                                 $tong += $tung_san_pham['gia']*$tung_san_pham['so_luong'];
-                             } 
-                             ?>
+                                   <?php 
+                                   $tong += $tung_san_pham['gia']*$tung_san_pham['so_luong'];
+                               } 
+                               ?>
 
-                             
-                         </div>
-                     </div>
-                     <hr class="m0">
-                 </div>
-                 <div class="order-summary order-summary--discount">
-                  
+                               
+                           </div>
+                       </div>
+                       <hr class="m0">
+                   </div>
+                   <div class="order-summary order-summary--discount">
+                      
                     <hr class="m0">
                 </div>
                 <div class="order-summary order-summary--total-lines">
@@ -162,7 +163,7 @@
                                 <span class="total-line-name pull-left">
                                     Tổng cộng
                                 </span>
-                                <span bind="money(totalOrderItemPrice + (isNaN(shippingFee) ? 0 : shippingFee) - discount,'{{amount_no_decimals_with_comma_separator}}₫')" class="total-line-price pull-right"><?php echo $tong."₫"; ?></span>
+                                <span bind="money(totalOrderItemPrice + (isNaN(shippingFee) ? 0 : shippingFee) - discount,'{{amount_no_decimals_with_comma_separator}}₫')" class="total-line-price pull-right"><?php echo number_format($tong,0)."₫"; ?></span>
                             </div>
                         </div>
                     </div>
@@ -245,7 +246,7 @@
                                             ?>
                                             
                                             <div class="billing">
-                                             
+                                               
                                                 <div>
                                                     <!-- _______________FORM XUWR LY THONG TIN KHACH HANG___________ -->
                                                     <form action="xl_dat_hang.php" method="get">
@@ -305,7 +306,7 @@
 
 
                                 <div class="col-md-6 col-lg-6">
-                                 
+                                   
                                     <div class="section payment-methods p0--desktop" bind-class="{'p0--desktop': shippingMethods.length == 0}">
                                         <div class="section__header">
                                             <h2 class="section__title">
@@ -326,7 +327,7 @@
                                                             <span class="radio__label__accessory">
                                                                 <ul>
                                                                     <li class="payment-icon-v2 payment-icon--4">
-                                                                     
+                                                                       
                                                                         <i class="fa fa-money payment-icon-fa" aria-hidden="true"></i>
                                                                         
                                                                     </li>
@@ -392,3 +393,4 @@
                 
 
             </body></html>
+            <?php } else {echo "<script> alert('Bạn không có sản phẩm nào trong giỏ hàng !');window.location='xem_gio_hang.php'; </script>";}?>

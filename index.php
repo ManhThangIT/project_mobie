@@ -93,7 +93,7 @@
 	<!-- Main content -->
 	<!-- Banner khuyến mãi fixed top -->
 
-	<div class="banner_a">
+	<!-- <div class="banner_a">
 		<div class="banner_ pull-left  banner_fixed_index_1">
 			<a href="" title="" class="banner_1_a">
 				<img class="img-responsive" src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/banner_fixed_1.png?1524126221691" alt="Digiworld">
@@ -104,7 +104,7 @@
 				<img class="img-responsive" src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/banner_fixed_2.png?1524126221691" alt="Digiworld">
 			</a>
 		</div>
-	</div>
+	</div> -->
 
 	<!-- Menu mobile -->
 	<div id="mySidenav" class="sidenav menu_mobile hidden-md hidden-lg">
@@ -141,30 +141,48 @@
 
 
 									<a href="./index.php" class="logo-wrapper ">					
-										<img src="https://bizweb.dktcdn.net/100/289/371/themes/634361/assets/logo.png?1524126221691" alt="logo ">					
+										<img src="img/logo.png" alt="logo ">					
 									</a>
 
 								</div>
 							</div>
+							<?php 
+							include 'connect_database.php';
+							$tim_kiem = "";
+							if(isset($_GET['tim_kiem'])){
+								$tim_kiem = strip_tags(addslashes($_GET['tim_kiem']));
+							}
+							$page = 1;
+							if(isset($_GET['page'])){
+								$page = $_GET['page'];
+							}
+
+							$limit = 1;
+
+
+							$offset = ($page-1)*$limit;
+
+							$query_show = "SELECT * from san_pham
+							join nha_san_xuat
+							on san_pham.ma_nha_san_xuat = nha_san_xuat.ma_nha_san_xuat
+							where ten_san_pham  like '%$tim_kiem%'
+							limit $limit offset $offset";
+							$result_show = mysqli_query($connect,$query_show);
+
+							$query_count = "SELECT count(*) from san_pham
+							where ten_san_pham like '%$tim_kiem%'";
+							$result_count = mysqli_query($connect,$query_count);
+							$row_count    = mysqli_fetch_array($result_count);
+							$count        = $row_count['count(*)'];
+
+							?>
 							<div class="col-lg-6 col-md-6">
 								<div class="header-left">
 									<div class="header_search hidden-xs hidden-sm">
-										<form action="/search" method="get" class="input-group search-bar" role="search">
-											<input type="hidden" name="type" value="product">
 
-											<input type="search" name="query" value="" placeholder="Bạn đang tìm sản phẩm gì..." class="input-group-field">
-											<span class="input-group-btn">
-												<button type="submit" class="btn icon-fallback-text">
-													Tìm kiếm      
-												</button>
-											</span>
-										</form>
-									</div>
-									<div class="header_search hidden-lg hidden-md">
-										<form action="/search" method="get" class="input-group search-bar" role="search">
-											<input type="hidden" name="type" value="product">
+										<form class="input-group search-bar" role="search">
 
-											<input type="search" name="query" value="" placeholder="Tìm kiếm..." class="input-group-field">
+											<input type="search" name="tim_kiem" value="<?php echo $tim_kiem ?>" placeholder="Bạn đang tìm sản phẩm gì..." class="input-group-field">
 											<span class="input-group-btn">
 												<button type="submit" class="btn icon-fallback-text">
 													Tìm kiếm      
@@ -232,7 +250,7 @@
 																				</div>
 
 																				<div class="product-details-bottom">
-																					<span class="price"><?php echo $tung_san_pham['gia']."₫" ?>	
+																					<span class="price"><?php echo number_format($tung_san_pham['gia'],0)."₫" ?>	
 																				</span>
 																				<a class="remove-item-cart fa fa-times" href="xoa_san_pham_trong_gio_hang.php?ma_san_pham=<?php echo $ma_san_pham ?>">&nbsp;</a>
 																				<div class="quantity-select qty_drop_cart">
@@ -251,7 +269,7 @@
 														?>
 														<div class="pd">
 															<div class="top-subtotal">Tổng tiền: 
-																<span class="price"><?php echo $tong."₫" ?></span>
+																<span class="price"><?php echo number_format($tong,0)."₫" ?></span>
 															</div>
 														</div>
 														<div class="pd right_ct">
@@ -672,8 +690,14 @@
 
 
 	<section class="awe-section-7">	
-		<!-- _______________CÓ THỂ BẠN THÍCH____________	 -->
+			<!-- SẢN PHẨM NỔI BẬT -->
 		<?php include 'include/product_4.php';?>
+
+	</section>
+	<!-- SẢN PHẨM MỚI -->
+	<section class="awe-section-7">	
+	
+		<?php include 'include/sp_moi.php';?>
 
 	</section>
 	<section class="section_buy_many">
